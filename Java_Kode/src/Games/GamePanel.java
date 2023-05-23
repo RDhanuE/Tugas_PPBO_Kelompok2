@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import Characters.Player;
+import Tiles.TilesManager;
 
 public class GamePanel extends JPanel implements Runnable{
     //Variables
@@ -18,6 +19,7 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenHeight = tileSize * maxScreenRow;
 
     //Game Component
+    TilesManager tileM = new TilesManager(this);
     KeyHandler keyhandler = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this, keyhandler);
@@ -69,6 +71,7 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
+        tileM.draw(g2);
         player.draw(g2);
         g2.dispose();
 
