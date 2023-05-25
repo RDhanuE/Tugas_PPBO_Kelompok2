@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import Characters.Player;
+import Characters.Satpams;
+import Tiles.DecorManager;
 import Tiles.TilesManager;
 
 public class GamePanel extends JPanel implements Runnable{
@@ -20,17 +22,19 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Game Component
     TilesManager tileM = new TilesManager(this);
+    DecorManager decoM = new DecorManager(this);
     KeyHandler keyhandler = new KeyHandler();
     Thread gameThread;
     public CollisionChecker collider = new CollisionChecker(this);
 
     Player player = new Player(this, keyhandler);
+    Satpams npc1 = new Satpams(this);
     int FPS = 60;
 
     //Code
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyhandler);
         this.setFocusable(true);
@@ -67,6 +71,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
         player.update();
+        npc1.update();
     }
 
     protected void paintComponent(Graphics g) {
@@ -74,7 +79,10 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
         tileM.draw(g2);
+        decoM.draw(g2);
+        npc1.draw(g2);
         player.draw(g2);
+
         g2.dispose();
 
     }
