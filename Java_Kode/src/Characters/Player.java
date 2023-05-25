@@ -1,6 +1,7 @@
 package Characters;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -20,11 +21,12 @@ public class Player extends Entity{
         setDefaultValue();
         getPlayerImage();
 
+        hitBox = new Rectangle(0, 32, 62, 26);
     }
 
     public void setDefaultValue() {
-        this.x = 100;
-        this.y = 100;
+        this.x = 200;
+        this.y = 200;
         this.speed = 4;
         direction = "down";
     }
@@ -71,28 +73,42 @@ public class Player extends Entity{
         if(keyH.upPressed){
             isMoving = true;
             direction = "up";
-            y -= speed;
         }
 
         else if(keyH.leftPressed){
             isMoving = true;
             direction = "left";
-            x -= speed;
         }
 
         else if(keyH.rightPressed){
             isMoving = true;
             direction = "right";
-            x += speed;
         }
 
         else if(keyH.downPressed){
             isMoving = true;
             direction = "down";
-            y += speed;
+
         }
         else {
             isMoving = false;
+        }
+
+        collisionOn = false;
+        gp.collider.checkTiles(this);
+        if(!collisionOn && isMoving){
+            if (direction.equals("up")){
+                y -= speed;
+            }
+            else if (direction.equals("left")){
+                x -= speed;
+            }
+            else if (direction.equals("down")){
+                y += speed;
+            }
+            else if (direction.equals("right")){
+                x += speed;
+            }
         }
 
         if (isMoving) {
