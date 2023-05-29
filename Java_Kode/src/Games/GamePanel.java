@@ -4,6 +4,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+
+import Characters.Entity;
+import Characters.Gudang;
 import Characters.Player;
 import Characters.Satpams;
 import Tiles.DecorManager;
@@ -13,22 +16,29 @@ public class GamePanel extends JPanel implements Runnable{
     //Variables
     final int originalTileSize = 32;
     final int scale = 2;
-
+    
     public final int tileSize = originalTileSize * scale;
     public final int maxScreenCol = 20;
     public final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
-
+    
     //Game Component
+    public UI ui = new UI(this);
     TilesManager tileM = new TilesManager(this);
     DecorManager decoM = new DecorManager(this);
-    KeyHandler keyhandler = new KeyHandler();
+    KeyHandler keyhandler = new KeyHandler(this);
     Thread gameThread;
     public CollisionChecker collider = new CollisionChecker(this);
+    public Entity[] interactable = new Entity[3];
 
-    Player player = new Player(this, keyhandler);
-    Satpams npc1 = new Satpams(this);
+    public Gudang gudang = new Gudang(this);
+    public Player player = new Player(this, keyhandler);
+    public Satpams npc1 = new Satpams(this);
+
+    
+
+
     int FPS = 60;
 
     //Code
@@ -38,8 +48,15 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyhandler);
         this.setFocusable(true);
+
+        this.setInteractable();
+    }
     
-    
+
+    public void setInteractable(){
+        this.interactable[1] = npc1;
+        this.interactable[2] = gudang;
+
     }
 
 
@@ -82,7 +99,7 @@ public class GamePanel extends JPanel implements Runnable{
         decoM.draw(g2);
         npc1.draw(g2);
         player.draw(g2);
-
+        ui.draw(g2);
         g2.dispose();
 
     }

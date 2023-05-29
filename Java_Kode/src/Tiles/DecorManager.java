@@ -38,10 +38,14 @@ public class DecorManager {
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("Decor/Door_BottomLeft.png"));
             tile[2].collision = true;
+            tile[2].isInteracable = true;
+            tile[2].Entityindex = 2;
             
             tile[3] = new Tile();
             tile[3].image = ImageIO.read(getClass().getResourceAsStream("Decor/Door_BottomRight.png"));
             tile[3].collision = true;
+            tile[3].isInteracable = true;
+            tile[3].Entityindex = 2;
             
             tile[4] = new Tile();
             tile[4].image = ImageIO.read(getClass().getResourceAsStream("Decor/Door_TopLeft.png"));
@@ -64,6 +68,16 @@ public class DecorManager {
             tile[8] = new Tile();
             tile[8].image = ImageIO.read(getClass().getResourceAsStream("Decor/Arrow_Right.png"));
             tile[8].collision = true;
+            
+            tile[9] = new Tile();
+            tile[9].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blank_Walls_Solid.png"));
+            tile[9].collision = true;
+            
+            tile[10] = new Tile();
+            tile[10].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blank_Walls_Interactable.png"));
+            tile[10].collision = true;
+            tile[10].isInteracable = true;
+            tile[10].Entityindex = 1;
             
         
             

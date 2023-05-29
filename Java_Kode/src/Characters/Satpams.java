@@ -10,20 +10,37 @@ import javax.imageio.ImageIO;
 import Games.GamePanel;
 
 public class Satpams extends Entity{
-    GamePanel gp;
 
     public Satpams(GamePanel gp){
-        this.gp = gp;
+        super(gp);
         setDefaultValue();
         getPlayerImage();
+        this.dialogue = new String[11];
+        
 
         hitBox = new Rectangle(0, 32, 62, 26);
     }
 
     public void setDefaultValue() {
-        this.x = 868;
-        this.y = 172;
+        this.x = 896;
+        this.y = 176;
         direction = "down";
+    }
+    
+    public void setDialogue(){
+        dialogue[0] = "Mahasiswa/nHalo, permisi";
+        dialogue[1] = "Satpam/nOhh iya nakk, ada yang bisa saya /nbantu?";
+        dialogue[2] = "Mahasiswa/nehmm begini pak, saya mahasiswa baru di sini,/ndan saya belum tahu banyak tentang prodi trpl./nBolehkah bapak jelaskan apa itu prodi TRPL";
+        dialogue[3] = "Satpam/nTRPL itu merupakan salah satu prodi di SV UGM./nProdi ini termasuk ke dalam DTEDI";
+        dialogue[4] = "Mahasiswa/nEhmm... selain itu pak?";
+        dialogue[5] = "Satpam/nApa ya? banyak sebenernya?";
+        dialogue[6] = "Mahasiswa/nYaa kalo banyak apa lagi pak astaghfirullah/njangan bikin saya emosi pak.";
+        dialogue[7] = "Satpam/nNah di TRPL inin kita akan mempelajari/nbagaimana cara pengembangan perangkat lunak/ntermasuk pembuatan, pemeliharaan/npengembangan manajemen kualitas/nperangkat lunak. Selain itu TRPL erat kaitannya/ndengan coding, desain, dan algoritma";
+        dialogue[8] = "Mahasiswa/nBaiklah okke pak.../nTombak tajam di tancapkan/nTerima kasih saya ucapkan";
+        dialogue[9] = "Satpam/nOke, sama - sama nak";
+        dialogue[10] = "Satpam/nSelamat datang dan selamat bersenang - senang";
+        gp.ui.currentDialogue = dialogue[counter];
+    
     }
 
     public void getPlayerImage(){
@@ -75,4 +92,5 @@ public class Satpams extends Entity{
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     
     }
+
 }

@@ -1,7 +1,6 @@
 package Characters;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -13,16 +12,13 @@ import Games.KeyHandler;
 public class Player extends Entity{
     boolean isMoving = false;
     boolean isPlayingPhone = false;
-    GamePanel gp;
-    KeyHandler keyH;
+    public KeyHandler keyH;
     
     public Player(GamePanel gp, KeyHandler keyH) {
-        this.gp = gp;
+        super(gp);
         this.keyH = keyH;
         setDefaultValue();
         getPlayerImage();
-
-        hitBox = new Rectangle(0, 32, 62, 26);
     }
 
     public void setDefaultValue() {
@@ -101,35 +97,45 @@ public class Player extends Entity{
         }
     }
 
+    public void interactNPC(){
+        
+    }
+
     public void update() {
-        if(keyH.upPressed){
-            isMoving = true;
-            direction = "up";
-        }
+        if(!keyH.isTalking){
+            if(keyH.upPressed){
+                isMoving = true;
+                direction = "up";
+            }
 
-        else if(keyH.leftPressed){
-            isMoving = true;
-            direction = "left";
-        }
+            else if(keyH.leftPressed){
+                isMoving = true;
+                direction = "left";
+            }
 
-        else if(keyH.rightPressed){
-            isMoving = true;
-            direction = "right";
-        }
+            else if(keyH.rightPressed){
+                isMoving = true;
+                direction = "right";
+            }
 
-        else if(keyH.downPressed){
-            isMoving = true;
-            direction = "down";
+            else if(keyH.downPressed){
+                isMoving = true;
+                direction = "down";
 
+            }
+            else {
+                isMoving = false;
+                isPlayingPhone = false;
+            }
         }
-        else {
+        else{
             isMoving = false;
             isPlayingPhone = false;
+            phoneIdleTimer = 0;
         }
-
         collisionOn = false;
         gp.collider.checkTiles(this);
-        if(!collisionOn && isMoving){
+        if(!collisionOn && isMoving && !keyH.isTalking){
             if (direction.equals("up")){
                 y -= speed;
             }
@@ -166,7 +172,7 @@ public class Player extends Entity{
             spriteCounter = 0;
 
             spriteIdleCounter++;
-            if(phoneIdleTimer > 20){
+            if(phoneIdleTimer > 20 && !keyH.isTalking){
                 isPlayingPhone = true;
                 direction = "down";
                 phoneIdleCounter++;
@@ -189,8 +195,6 @@ public class Player extends Entity{
                 }
                 spriteIdleCounter = 0;
             }
-
-
         }
 
     }
