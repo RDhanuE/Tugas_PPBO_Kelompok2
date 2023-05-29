@@ -21,6 +21,7 @@ public class CollisionChecker {
         int downRow = downTiles / gp.tileSize;
 
         int tileNum1, tileNum2, decoNum1, decoNum2;
+        System.out.println("Left " + leftTiles + " Right " + rightTiles + " Up " + upTiles + " Down " + downTiles);
 
         if (entity.direction.equals("up")){
             upRow = (upTiles - entity.speed) / gp.tileSize;
@@ -28,7 +29,7 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.mapTIleNum[rightCol][upRow];
             decoNum1 = gp.decoM.mapTIleNum[LeftCol][upRow];
             decoNum2 = gp.decoM.mapTIleNum[rightCol][upRow];
-            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
+            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || upTiles == 0){
                 entity.collisionOn = true;
             }
             if (gp.decoM.tile[decoNum1].isInteracable == true){
@@ -49,7 +50,7 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.mapTIleNum[rightCol][downRow];
             decoNum1 = gp.decoM.mapTIleNum[rightCol][upRow];
             decoNum2 = gp.decoM.mapTIleNum[rightCol][downRow];
-            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
+            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || rightTiles >= 1274){
                 entity.collisionOn = true;
                 }
             if (gp.decoM.tile[decoNum1].isInteracable == true){
@@ -70,7 +71,7 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.mapTIleNum[rightCol][downRow];
             decoNum1 = gp.decoM.mapTIleNum[LeftCol][downRow];
             decoNum2 = gp.decoM.mapTIleNum[rightCol][downRow];
-            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
+            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || downTiles >= 760){
                 entity.collisionOn = true;
             }
             if (gp.decoM.tile[decoNum1].isInteracable == true){
@@ -91,7 +92,7 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.mapTIleNum[LeftCol][downRow];
             decoNum1 = gp.decoM.mapTIleNum[LeftCol][upRow];
             decoNum2 = gp.decoM.mapTIleNum[LeftCol][downRow];
-            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
+            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || leftTiles == 0){
                 entity.collisionOn = true;
             }
             if (gp.decoM.tile[decoNum1].isInteracable == true){
