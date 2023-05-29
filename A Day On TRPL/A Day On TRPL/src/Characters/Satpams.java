@@ -16,6 +16,7 @@ public class Satpams extends Entity{
         setDefaultValue();
         getPlayerImage();
         this.dialogue = new String[11];
+        nextQuest = 2;
         
 
         hitBox = new Rectangle(0, 32, 62, 26);

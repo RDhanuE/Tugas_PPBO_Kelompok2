@@ -24,7 +24,6 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenHeight = tileSize * maxScreenRow;
     
     //Game Component
-    public UI ui = new UI(this);
     TilesManager tileM = new TilesManager(this);
     DecorManager decoM = new DecorManager(this);
     KeyHandler keyhandler = new KeyHandler(this);
@@ -35,9 +34,10 @@ public class GamePanel extends JPanel implements Runnable{
     public Gudang gudang = new Gudang(this);
     public Player player = new Player(this, keyhandler);
     public Satpams npc1 = new Satpams(this);
-
     
-
+    public UI ui = new UI(this);
+    
+    
 
     int FPS = 60;
 

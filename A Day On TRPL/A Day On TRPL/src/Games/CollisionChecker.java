@@ -21,8 +21,6 @@ public class CollisionChecker {
         int downRow = downTiles / gp.tileSize;
 
         int tileNum1, tileNum2, decoNum1, decoNum2;
-        System.out.println("Left " + leftTiles + " Right " + rightTiles + " Up " + upTiles + " Down " + downTiles);
-
         if (entity.direction.equals("up")){
             upRow = (upTiles - entity.speed) / gp.tileSize;
             tileNum1 = gp.tileM.mapTIleNum[LeftCol][upRow];
@@ -40,7 +38,9 @@ public class CollisionChecker {
                 gp.ui.indexNPC = gp.decoM.tile[decoNum2].Entityindex;
 
             } else {
-                gp.ui.talk = false;
+                if (gp.ui.startCounter >= gp.ui.startDialogue.length){
+                    gp.ui.talk = false;
+                }
                 gp.ui.indexNPC = 0;
             }
         } 
@@ -61,7 +61,9 @@ public class CollisionChecker {
                 gp.ui.indexNPC = gp.decoM.tile[decoNum2].Entityindex;
 
             } else {
-                gp.ui.talk = false;
+                if (gp.ui.startCounter >= gp.ui.startDialogue.length){
+                    gp.ui.talk = false;
+                }
                 gp.ui.indexNPC = 0;
             }
         }
@@ -82,7 +84,9 @@ public class CollisionChecker {
                 gp.ui.indexNPC = gp.decoM.tile[decoNum2].Entityindex;
 
             } else {
-                gp.ui.talk = false;
+                if (gp.ui.startCounter >= gp.ui.startDialogue.length){
+                    gp.ui.talk = false;
+                }
                 gp.ui.indexNPC = 0;
             }
         }
@@ -103,7 +107,9 @@ public class CollisionChecker {
                 gp.ui.indexNPC = gp.decoM.tile[decoNum2].Entityindex;
 
             } else {
-                gp.ui.talk = false;
+                if (gp.ui.startCounter >= gp.ui.startDialogue.length){
+                    gp.ui.talk = false;
+                }
                 gp.ui.indexNPC = 0;
             }
         }

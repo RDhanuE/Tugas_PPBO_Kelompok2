@@ -37,6 +37,7 @@ public class Entity {
     public boolean collisionOn = false;
     public boolean doneTalking = false;
     public String dialogue[];
+    public int nextQuest;
 
     public void setDialogue(){}
 }

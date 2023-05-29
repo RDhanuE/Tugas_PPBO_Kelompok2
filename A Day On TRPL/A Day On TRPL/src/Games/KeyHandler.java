@@ -32,21 +32,26 @@ public class KeyHandler implements KeyListener{
             rightPressed = true;
         }
         if(code == KeyEvent.VK_ENTER && gp.ui.talk){
+            System.out.println("pressed");
             Entity target = gp.interactable[gp.ui.indexNPC];
-            if (!isTalking){
+            if (gp.ui.startCounter < gp.ui.startDialogue.length){
+                gp.ui.startCounter++;
+            }
+            else if (!isTalking){
                 isTalking = true;
                 if (target.doneTalking){
                     target.counter = target.dialogue.length - 1;
                 }else{
                     target.counter++;
-                    System.out.println(target.counter);
-                }
+                    }
             }
-            else if (isTalking){
+            else if (isTalking && gp.ui.startCounter >= gp.ui.startDialogue.length){
                 if (!target.doneTalking){
                     target.counter++;
-                    System.out.println(target.counter);
                     if (target.counter >= target.dialogue.length - 1){
+                        if (gp.ui.indexQuest == target.nextQuest - 1){
+                            gp.ui.indexQuest = target.nextQuest;
+                        }
                         target.doneTalking = true;
                         isTalking = false;
                     }
