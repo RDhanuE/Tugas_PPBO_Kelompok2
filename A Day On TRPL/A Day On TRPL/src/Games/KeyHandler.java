@@ -19,47 +19,78 @@ public class KeyHandler implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
-            upPressed = true;
-        }
-        if(code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){
-            leftPressed = true;
-        }
-        if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
-            downPressed = true;
-        }
-        if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
-            rightPressed = true;
-        }
-        if(code == KeyEvent.VK_ENTER && gp.ui.talk){
-            System.out.println("pressed");
-            Entity target = gp.interactable[gp.ui.indexNPC];
-            if (gp.ui.startCounter < gp.ui.startDialogue.length){
-                gp.ui.startCounter++;
+
+        if (gp.gameState == gp.titlestate){
+            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+                if (gp.ui.commandNum == 0){
+                    gp.ui.commandNum = 2;
+                } else {
+                    gp.ui.commandNum--;
+                }
             }
-            else if (!isTalking){
-                isTalking = true;
-                if (target.doneTalking){
-                    target.counter = target.dialogue.length - 1;
-                }else{
-                    target.counter++;
+            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+                if (gp.ui.commandNum == 2){
+                    gp.ui.commandNum = 0;
+                } else {
+                    gp.ui.commandNum++;
+                }
+            }
+            if(code == KeyEvent.VK_ENTER){
+                if (gp.ui.commandNum == 0){
+                    gp.gameState = gp.playstate;
+                }
+            }
+        }
+
+        if (gp.gameState == gp.playstate){
+            if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+                upPressed = true;
+            }
+            if(code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT){
+                leftPressed = true;
+            }
+            if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+                downPressed = true;
+            }
+            if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
+                rightPressed = true;
+            }
+            if(code == KeyEvent.VK_ENTER && gp.ui.talk){
+                Entity target = gp.interactable[gp.ui.indexNPC];
+                if (gp.player.direction == "right"){
+                    target.direction = "left";
+                } else if (gp.player.direction == "left"){
+                    target.direction = "right";
+                } else if (gp.player.direction == "up"){
+                    target.direction = "down";
+                }
+                if (gp.ui.startCounter < gp.ui.startDialogue.length){
+                    gp.ui.startCounter++;
+                }
+                else if (!isTalking){
+                    isTalking = true;
+                    if (target.doneTalking){
+                        target.counter = target.dialogue.length - 1;
+                    }else{
+                        target.counter++;
                     }
-            }
-            else if (isTalking && gp.ui.startCounter >= gp.ui.startDialogue.length){
-                if (!target.doneTalking){
-                    target.counter++;
-                    if (target.counter >= target.dialogue.length - 1){
-                        if (gp.ui.indexQuest == target.nextQuest - 1){
-                            gp.ui.indexQuest = target.nextQuest;
+                }
+                else if (isTalking && gp.ui.startCounter >= gp.ui.startDialogue.length){
+                    if (!target.doneTalking){
+                        target.counter++;
+                        if (target.counter >= target.dialogue.length - 1){
+                            if (gp.ui.indexQuest == target.nextQuest - 1){
+                                gp.ui.indexQuest = target.nextQuest;
+                            }
+                            target.doneTalking = true;
+                            isTalking = false;
                         }
-                        target.doneTalking = true;
+                    }
+                    else if (target.doneTalking){
                         isTalking = false;
                     }
                 }
-                else if (target.doneTalking){
-                    isTalking = false;
-                }
-            }
+            } 
         }
     }
 

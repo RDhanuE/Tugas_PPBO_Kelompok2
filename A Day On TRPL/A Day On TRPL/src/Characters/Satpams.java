@@ -52,6 +52,22 @@ public class Satpams extends Entity{
             downIdle4 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle4.png"));
             downIdle5 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle5.png"));
             downIdle6 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle6.png"));
+
+            rightIdle1 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right1.png"));
+            rightIdle2 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right2.png"));
+            rightIdle3 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right3.png"));
+            rightIdle4 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right4.png"));
+            rightIdle5 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right5.png"));
+            rightIdle6 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right6.png"));
+
+            
+            leftIdle1 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left1.png"));
+            leftIdle2 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left2.png"));
+            leftIdle3 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left3.png"));
+            leftIdle4 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left4.png"));
+            leftIdle5 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left5.png"));
+            leftIdle6 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left6.png"));
+
             
         } catch(IOException e) {
             e.printStackTrace();
@@ -72,24 +88,66 @@ public class Satpams extends Entity{
 
     public void draw(Graphics2D g2){
         BufferedImage image = null;
-        if (spriteNum == 1){
-            image = downIdle1;
+
+        if (direction == "down"){
+            if (spriteNum == 1){
+                image = downIdle1;
+            }
+            if (spriteNum == 2){
+                image = downIdle2;
+            }
+            if (spriteNum == 3){
+                image = downIdle3;
+            }
+            if (spriteNum == 4){
+                image = downIdle4;
+            }
+            if (spriteNum == 5){
+                image = downIdle5;
+            }
+            if (spriteNum == 6){
+                image = downIdle6;        
+           }
         }
-        if (spriteNum == 2){
-            image = downIdle2;
+        else if (direction == "left"){
+            if (spriteNum == 1){
+                image = leftIdle1;
+            }
+            if (spriteNum == 2){
+                image = leftIdle2;
+            }
+            if (spriteNum == 3){
+                image = leftIdle3;
+            }
+            if (spriteNum == 4){
+                image = leftIdle4;
+            }
+            if (spriteNum == 5){
+                image = leftIdle5;
+            }
+            if (spriteNum == 6){
+                image = leftIdle6;        
+           }
+        } else if (direction == "right"){
+            if (spriteNum == 1){
+                image = rightIdle1;
+            }
+            if (spriteNum == 2){
+                image = rightIdle2;
+            }
+            if (spriteNum == 3){
+                image = rightIdle3;
+            }
+            if (spriteNum == 4){
+                image = rightIdle4;
+            }
+            if (spriteNum == 5){
+                image = rightIdle5;
+            }
+            if (spriteNum == 6){
+                image = rightIdle6;        
+           }
         }
-        if (spriteNum == 3){
-            image = downIdle3;
-        }
-        if (spriteNum == 4){
-            image = downIdle4;
-        }
-        if (spriteNum == 5){
-            image = downIdle5;
-        }
-        if (spriteNum == 6){
-            image = downIdle6;
-        } 
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     
     }

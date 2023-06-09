@@ -22,6 +22,7 @@ public class UI {
     public String[] quest = new String[3];
     String[] startDialogue = new String[4];
     int count = 1;
+    public int commandNum = 0;
         
         
 
@@ -47,18 +48,71 @@ public class UI {
 
     public void draw(Graphics2D g2){
         this.g2 = g2;
-        drawQuestBar();
-        if (count == 1 && startCounter <= startDialogue.length){
-            startJourney();
-            
+        
+        if (gp.gameState == gp.titlestate){
+            drawTittleScreen();
         }
-        if (indexNPC != 0 && !gp.player.keyH.isTalking){
-            g2.drawImage(bubble, 0, gp.tileSize * 10, gp.tileSize * 2, gp.tileSize * 2, null);
+
+        else if (gp.gameState == gp.playstate){
+            drawQuestBar();
+            if (count == 1 && startCounter <= startDialogue.length){
+                startJourney();
+                
+            }
+            if (indexNPC != 0 && !gp.player.keyH.isTalking){
+                g2.drawImage(bubble, 0, gp.tileSize * 10, gp.tileSize * 2, gp.tileSize * 2, null);
+            }
+            if (gp.player.keyH.isTalking && talk && startCounter >= startDialogue.length){
+                gp.interactable[indexNPC].setDialogue();
+                drawDialogueScreen();
+           }
         }
-        if (gp.player.keyH.isTalking && talk && startCounter >= startDialogue.length){
-            gp.interactable[indexNPC].setDialogue();
-            drawDialogueScreen();
+    }
+
+    public void drawTittleScreen(){
+        g2.setColor(Color.orange);
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96));
+        String text = "A DAY ON TRPL";
+        int x = getcenterX(text);
+        int y = gp.tileSize * 2;
+
+        g2.setColor(Color.black);
+        g2.drawString(text, x + 7, y + 7);
+        g2.setColor(Color.white);
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40 ));
+
+        g2.setColor(Color.black);
+        text = "Start Game";
+        x = getcenterX(text);
+        y += gp.tileSize * 4;
+        g2.drawString(text, x, y);
+        if(commandNum == 0){
+            g2.drawString(">>", x - gp.tileSize, y);
+            g2.drawString("<<", x + gp.tileSize * 2 + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth() / 2, y);
         }
+        
+        text = "Load Game";
+        x = getcenterX(text);
+        y += gp.tileSize ;
+        g2.drawString(text, x, y);
+        if(commandNum == 1){
+            g2.drawString(">>", x - gp.tileSize, y);
+            g2.drawString("<<", x + gp.tileSize * 2 + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth() / 2, y);
+        }
+
+        text = "Option";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+        if(commandNum == 2){
+            g2.drawString(">>", x - gp.tileSize, y);
+            g2.drawString("<<", x + gp.tileSize * 1.25f + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth() / 2, y);
+        }
+    
     }
 
     public void startJourney(){
@@ -101,6 +155,11 @@ public class UI {
             }
             whichLine++;
         }
+    }
+
+    public int getcenterX(String text){
+        int textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        return gp.screenWidth / 2 - textLength / 2;
     }
 
     public void drawDialogueScreen(){

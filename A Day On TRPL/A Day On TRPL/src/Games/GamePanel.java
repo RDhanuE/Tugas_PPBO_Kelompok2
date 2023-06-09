@@ -36,6 +36,10 @@ public class GamePanel extends JPanel implements Runnable{
     public Satpams npc1 = new Satpams(this);
     
     public UI ui = new UI(this);
+
+    public int gameState;
+    public final int playstate = 1;
+    public final int titlestate = 2;
     
     
 
@@ -50,6 +54,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
 
         this.setInteractable();
+        gameState = titlestate;
     }
     
 
@@ -95,11 +100,16 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
-        tileM.draw(g2);
-        decoM.draw(g2);
-        npc1.draw(g2);
-        player.draw(g2);
-        ui.draw(g2);
+        if (gameState == titlestate){
+            ui.draw(g2);
+        } else {
+            tileM.draw(g2);
+            decoM.draw(g2);
+            npc1.draw(g2);
+            player.draw(g2);
+            ui.draw(g2);     
+        }
+
         g2.dispose();
 
     }
