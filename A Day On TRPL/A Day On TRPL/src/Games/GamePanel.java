@@ -38,7 +38,8 @@ public class GamePanel extends JPanel implements Runnable{
     public UI ui = new UI(this);
 
     public int gameState;
-    public final int playstate = 1;
+    public final int playstatelobby = 1;
+    public final int playstateteori = 4;
     public final int titlestate = 2;
     public final int creditstate = 3;
     
@@ -62,7 +63,6 @@ public class GamePanel extends JPanel implements Runnable{
     public void setInteractable(){
         this.interactable[1] = npc1;
         this.interactable[2] = gudang;
-
     }
 
 
@@ -101,9 +101,11 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
-        if (gameState == titlestate){
+        if (gameState == titlestate || gameState == creditstate){
             ui.draw(g2);
         } else {
+
+            System.out.println(player.x + " " + player.y);
             tileM.draw(g2);
             decoM.draw(g2);
             npc1.draw(g2);

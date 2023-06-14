@@ -27,7 +27,13 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.mapTIleNum[rightCol][upRow];
             decoNum1 = gp.decoM.mapTIleNum[LeftCol][upRow];
             decoNum2 = gp.decoM.mapTIleNum[rightCol][upRow];
-            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || upTiles == 0){
+
+            if (upTiles == 0) {
+                gp.gameState = gp.playstateteori;
+                gp.player.x = 1144;
+                gp.player.y = 248;
+            }
+            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
                 entity.collisionOn = true;
             }
             if (gp.decoM.tile[decoNum1].isInteracable == true){

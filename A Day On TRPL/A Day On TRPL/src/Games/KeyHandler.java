@@ -37,7 +37,7 @@ public class KeyHandler implements KeyListener{
             }
             if(code == KeyEvent.VK_ENTER){
                 if (gp.ui.commandNum == 0){
-                    gp.gameState = gp.playstate;
+                    gp.gameState = gp.playstatelobby;
                 }
 
                 if (gp.ui.commandNum == 1){
@@ -56,7 +56,7 @@ public class KeyHandler implements KeyListener{
             }
         }
 
-        else if (gp.gameState == gp.playstate){
+        else if (gp.gameState == gp.playstatelobby || gp.gameState == gp.playstateteori){
             if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
                 upPressed = true;
             }
