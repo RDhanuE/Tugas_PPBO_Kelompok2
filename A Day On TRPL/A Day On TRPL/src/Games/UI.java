@@ -52,8 +52,8 @@ public class UI {
 
     public void setQuest(){
         quest[0] = "";
-        quest[1] = "Bicara dengan pak/nsatpam";
-        quest[2] = "Pergi ke kelas";
+        quest[1] = "Bicara /ndengan Pak /nsatpam";
+        quest[2] = "Pergi ke /nkelas";
     }
 
 
@@ -186,10 +186,10 @@ public class UI {
             gp.player.keyH.isTalking = true;
             talk = true;
         }
-        startDialogue[0] = "Mahasiswa/nOke, hari ini adalah hari pertamaku kuliah di/njurusan TRPL";
+        startDialogue[0] = "Mahasiswa/nOke, hari ini adalah hari /npertamaku kuliah di/njurusan TRPL";
         startDialogue[1] = "Mahasiswa/nEmm....";
-        startDialogue[2] = "Mahasiswa/nSetelah dipikir - pikir, aku belom tahu banyak/ntentang TRPL";
-        startDialogue[3] = "Mahasiswa/nCoba kutanyakan dengan pak satpam itu, mungkin/nsaja beliau tahu lebih banyak";
+        startDialogue[2] = "Mahasiswa/nSetelah dipikir - pikir, aku /nbelom tahu banyak/ntentang TRPL";
+        startDialogue[3] = "Mahasiswa/nCoba kutanyakan dengan pak /nsatpam itu, mungkin/nsaja beliau tahu lebih /nbanyak";
         if (startCounter >= startDialogue.length){
             count--;
             indexQuest = 1;
@@ -216,9 +216,7 @@ public class UI {
         g2.setColor(Color.BLACK);
         for (String line : quest[indexQuest].split("/n")){
             g2.drawString(line, x, y);
-            if (whichLine == 0){
                 y += 20;
-            }
             whichLine++;
         }
     }
@@ -232,7 +230,7 @@ public class UI {
         int x = gp.tileSize * 7;
         int y = gp.tileSize * 3;
         int width = gp.tileSize * 6;
-        int height = gp.tileSize * 4;
+        int height = gp.tileSize * 5;
         drawSubWindow(x, y, width, height);
 
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN , 15));

@@ -30,16 +30,16 @@ public class Satpams extends Entity{
     
     public void setDialogue(){
         dialogue[0] = "Mahasiswa/nHalo, permisi";
-        dialogue[1] = "Satpam/nOhh iya nakk, ada yang bisa saya /nbantu?";
-        dialogue[2] = "Mahasiswa/nehmm begini pak, saya mahasiswa baru di sini,/ndan saya belum tahu banyak tentang prodi trpl./nBolehkah bapak jelaskan apa itu prodi TRPL";
-        dialogue[3] = "Satpam/nTRPL itu merupakan salah satu prodi di SV UGM./nProdi ini termasuk ke dalam DTEDI";
+        dialogue[1] = "Satpam/nOhh iya nakk, ada yang bisa /nsaya bantu?";
+        dialogue[2] = "Mahasiswa/nehmm begini pak, /nsaya mahasiswa baru di sini,/ndan saya belum tahu /nbanyak tentang prodi trpl./nBolehkah bapak jelaskan /napa itu prodi TRPL";
+        dialogue[3] = "Satpam/nTRPL itu merupakan salah /nsatu prodi di SV UGM./nProdi ini termasuk ke dalam /nDTEDI";
         dialogue[4] = "Mahasiswa/nEhmm... selain itu pak?";
         dialogue[5] = "Satpam/nApa ya? banyak sebenernya?";
-        dialogue[6] = "Mahasiswa/nYaa kalo banyak apa lagi pak astaghfirullah/njangan bikin saya emosi pak.";
-        dialogue[7] = "Satpam/nNah di TRPL inin kita akan mempelajari/nbagaimana cara pengembangan perangkat lunak/ntermasuk pembuatan, pemeliharaan/npengembangan manajemen kualitas/nperangkat lunak. Selain itu TRPL erat kaitannya/ndengan coding, desain, dan algoritma";
+        dialogue[6] = "Mahasiswa/nYaa kalo banyak apa lagi pak /nastaghfirullah jangan /nbikin saya emosi pak.";
+        dialogue[7] = "Satpam/nNah di TRPL inin kita akan /nmempelajari bagaimana cara /npengembangan perangkat /nlunak termasuk pembuatan, /npemeliharaan, pengembangan, /nmanajemen kualitas /nperangkat lunak. Selain itu /nTRPL erat kaitannya dengan /ncoding, desain, dan /nalgoritma";
         dialogue[8] = "Mahasiswa/nBaiklah okke pak.../nTombak tajam di tancapkan/nTerima kasih saya ucapkan";
         dialogue[9] = "Satpam/nOke, sama - sama nak";
-        dialogue[10] = "Satpam/nSelamat datang dan selamat bersenang - senang";
+        dialogue[10] = "Satpam/nSelamat datang dan selamat /nbersenang - senang";
         gp.ui.currentDialogue = dialogue[counter];
     
     }
