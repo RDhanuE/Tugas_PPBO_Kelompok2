@@ -12,14 +12,19 @@ import Games.GamePanel;
 
 public class TilesManager {
     GamePanel gp;
-    public Tile[] tile;
     public int mapTIleNum[][];
+    public Tile[] tile;
 
+    public int mapTeoriTIleNum[][];
+
+
+    public int currentTileMap[][];
     public TilesManager(GamePanel gp){
         this.gp = gp;
 
         tile = new Tile[20];
         mapTIleNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        mapTeoriTIleNum = new int[gp.maxScreenCol][gp.maxScreenRow];
 
         getTileImage();
         loadMap();
@@ -104,15 +109,45 @@ public class TilesManager {
             br.close();
         }catch(Exception e){
         }
+
+        try{
+            InputStream in = getClass().getResourceAsStream("Maps/Mapsteori.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+            int col = 0;
+            int row = 0;
+
+            while (col < gp.maxScreenCol && row < gp.maxScreenRow){
+                String line = br.readLine();
+                while (col < gp.maxScreenCol){
+                    String numbers[] = line.split(" ");
+                    int num = Integer.parseInt(numbers[col]);
+                    mapTeoriTIleNum[col][row] = num;
+                    col++;
+                }
+                if (col == gp.maxScreenCol){
+                    col = 0;
+                    row++;
+                }
+            }
+            br.close();
+        }catch(Exception e){
+        }
     }
 
     public void draw(Graphics2D g2){
         int col = 0;
         int row = 0;
+        if (gp.gameState == gp.playstatelobby){
+            currentTileMap = mapTIleNum;
+        }
+        else if(gp.gameState == gp.playstateteori){
+            currentTileMap = mapTeoriTIleNum;
+        }
         while (row < gp.maxScreenRow) {
             while (col < gp.maxScreenCol){
-                g2.drawImage(tile[mapTIleNum[col][row]].image, gp.tileSize * col, gp.tileSize * row, gp.tileSize, gp.tileSize, null);
-                col++;    
+                g2.drawImage(tile[currentTileMap[col][row]].image, gp.tileSize * col, gp.tileSize * row, gp.tileSize, gp.tileSize, null);
+                col++;
             }
             row++;
             col = 0;
