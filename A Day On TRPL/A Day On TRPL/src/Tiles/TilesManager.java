@@ -133,6 +133,30 @@ public class TilesManager {
             br.close();
         }catch(Exception e){
         }
+
+        try{
+            InputStream in = getClass().getResourceAsStream("Maps/Mapspraktikum.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+            int col = 0;
+            int row = 0;
+
+            while (col < gp.maxScreenCol && row < gp.maxScreenRow){
+                String line = br.readLine();
+                while (col < gp.maxScreenCol){
+                    String numbers[] = line.split(" ");
+                    int num = Integer.parseInt(numbers[col]);
+                    mapTIleNum[col][row] = num;
+                    col++;
+                }
+                if (col == gp.maxScreenCol){
+                    col = 0;
+                    row++;
+                }
+            }
+            br.close();
+        }catch(Exception e){
+        }
     }
 
     public void draw(Graphics2D g2){
