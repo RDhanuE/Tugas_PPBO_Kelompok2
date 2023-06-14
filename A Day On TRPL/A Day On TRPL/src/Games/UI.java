@@ -70,7 +70,7 @@ public class UI {
             drawCredits();
         }
 
-        else if (gp.gameState == gp.playstate){
+        else if (gp.gameState == gp.playstatelobby){
             drawQuestBar();
             if (count == 1 && startCounter <= startDialogue.length){
                 startJourney();
