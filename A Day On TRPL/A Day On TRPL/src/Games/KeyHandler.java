@@ -39,10 +39,24 @@ public class KeyHandler implements KeyListener{
                 if (gp.ui.commandNum == 0){
                     gp.gameState = gp.playstate;
                 }
+
+                if (gp.ui.commandNum == 1){
+                    gp.gameState = gp.creditstate;
+                }
+
+                if (gp.ui.commandNum == 2){
+                    System.exit(0);
+                }
             }
         }
 
-        if (gp.gameState == gp.playstate){
+        else if (gp.gameState == gp.creditstate){
+            if(code == KeyEvent.VK_ENTER){
+                gp.gameState = gp.titlestate;
+            }
+        }
+
+        else if (gp.gameState == gp.playstate){
             if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
                 upPressed = true;
             }

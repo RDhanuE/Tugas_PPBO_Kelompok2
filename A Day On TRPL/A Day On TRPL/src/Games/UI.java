@@ -53,6 +53,10 @@ public class UI {
             drawTittleScreen();
         }
 
+        else if (gp.gameState == gp.creditstate){
+            drawCredits();
+        }
+
         else if (gp.gameState == gp.playstate){
             drawQuestBar();
             if (count == 1 && startCounter <= startDialogue.length){
@@ -67,6 +71,55 @@ public class UI {
                 drawDialogueScreen();
            }
         }
+    }
+
+    public void drawCredits(){
+        g2.setColor(Color.white);
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96));
+        
+        String text = "Credits";
+        int x = getcenterX(text);
+        int y = gp.tileSize * 3;
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40 ));
+
+        g2.setColor(Color.black);
+        text = "Ryvalino Dhanu Ekaputra";
+        x = getcenterX(text);
+        y += gp.tileSize * 2;
+        g2.drawString(text, x, y);
+
+        g2.setColor(Color.black);
+        text = "Lutfi Lisana Shidqi";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        g2.setColor(Color.black);
+        text = "Naufal Manaf";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        g2.setColor(Color.black);
+        text = "Tsania Qurrota A'yunin Qulub";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        g2.setColor(Color.black);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30 ));
+        text = "Press enter to get back to main menu";
+        x = getcenterX(text);
+        y += gp.tileSize * 3;
+        g2.drawString(text, x, y);
+        
+    
     }
 
     public void drawTittleScreen(){
@@ -91,26 +144,26 @@ public class UI {
         y += gp.tileSize * 4;
         g2.drawString(text, x, y);
         if(commandNum == 0){
-            g2.drawString(">>", x - gp.tileSize, y);
-            g2.drawString("<<", x + gp.tileSize * 2 + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth() / 2, y);
+            g2.drawString(">>", x - (int) g2.getFontMetrics().getStringBounds("<<", g2).getWidth(), y);
+            g2.drawString("<<", x + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth()  , y);
         }
         
-        text = "Load Game";
+        text = "Credits";
         x = getcenterX(text);
         y += gp.tileSize ;
         g2.drawString(text, x, y);
         if(commandNum == 1){
-            g2.drawString(">>", x - gp.tileSize, y);
-            g2.drawString("<<", x + gp.tileSize * 2 + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth() / 2, y);
+            g2.drawString(">>", x - (int) g2.getFontMetrics().getStringBounds("<<", g2).getWidth(), y);
+            g2.drawString("<<", x + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth(), y);
         }
 
-        text = "Option";
+        text = "Quit";
         x = getcenterX(text);
         y += gp.tileSize;
         g2.drawString(text, x, y);
         if(commandNum == 2){
-            g2.drawString(">>", x - gp.tileSize, y);
-            g2.drawString("<<", x + gp.tileSize * 1.25f + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth() / 2, y);
+            g2.drawString(">>", x - (int) g2.getFontMetrics().getStringBounds("<<", g2).getWidth(), y);
+            g2.drawString("<<", x + (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth(), y);
         }
     
     }
