@@ -12,11 +12,12 @@ import Games.GamePanel;
 
 public class TilesManager {
     GamePanel gp;
-    public int mapTIleNum[][];
     public Tile[] tile;
+    public int mapTIleNum[][];
 
     public int mapTeoriTIleNum[][];
 
+    public int mapPraktikumTIleNum[][];
 
     public int currentTileMap[][];
     public TilesManager(GamePanel gp){
@@ -146,7 +147,7 @@ public class TilesManager {
                 while (col < gp.maxScreenCol){
                     String numbers[] = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
-                    mapTIleNum[col][row] = num;
+                    mapPraktikumTIleNum[col][row] = num;
                     col++;
                 }
                 if (col == gp.maxScreenCol){
@@ -167,6 +168,9 @@ public class TilesManager {
         }
         else if(gp.gameState == gp.playstateteori){
             currentTileMap = mapTeoriTIleNum;
+        }
+        else if(gp.gameState == gp.playstatepraktikum){
+            currentTileMap = mapPraktikumTIleNum;
         }
         while (row < gp.maxScreenRow) {
             while (col < gp.maxScreenCol){
