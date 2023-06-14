@@ -3,16 +3,18 @@ package Games;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
 
 public class UI {
     BufferedImage bubble;
-    Font arial_40, arial_80B;
+    Font retroC;
     GamePanel gp;
     Graphics2D g2;
     public String currentDialogue;
@@ -29,7 +31,16 @@ public class UI {
 
     public UI(GamePanel gp){
         this.gp = gp;
-        arial_40 = new Font("Poppins", Font.PLAIN, 40);
+        try {
+            InputStream is = getClass().getResourceAsStream("/Fonts/retroC.ttf");
+            retroC = Font.createFont(Font.TRUETYPE_FONT, is);
+            
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+        }
+
+
+
         try {
             bubble = ImageIO.read(getClass().getResourceAsStream("pixelbubble.png"));
         } catch (IOException e) {
@@ -48,7 +59,9 @@ public class UI {
 
     public void draw(Graphics2D g2){
         this.g2 = g2;
-        
+        g2.setFont(retroC);
+
+
         if (gp.gameState == gp.titlestate){
             drawTittleScreen();
         }

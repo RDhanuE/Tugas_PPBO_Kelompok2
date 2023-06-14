@@ -12,6 +12,7 @@ public class Games{
         gameWindow.add(gamepanel);
         gameWindow.pack();
 
+
         gameWindow.setLocationRelativeTo(null );
         gameWindow.setVisible(true);
 
