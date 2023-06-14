@@ -111,7 +111,7 @@ public class TilesManager {
         }
 
         try{
-            InputStream in = getClass().getResourceAsStream("Maps/Mapsteori.txt");
+            InputStream in = getClass().getResourceAsStream("Maps/MapsTheory.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
             int col = 0;
