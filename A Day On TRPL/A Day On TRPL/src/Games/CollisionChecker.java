@@ -23,10 +23,10 @@ public class CollisionChecker {
         int tileNum1, tileNum2, decoNum1, decoNum2;
         if (entity.direction.equals("up")){
             upRow = (upTiles - entity.speed) / gp.tileSize;
-            tileNum1 = gp.tileM.mapTIleNum[LeftCol][upRow];
-            tileNum2 = gp.tileM.mapTIleNum[rightCol][upRow];
-            decoNum1 = gp.decoM.mapTIleNum[LeftCol][upRow];
-            decoNum2 = gp.decoM.mapTIleNum[rightCol][upRow];
+            tileNum1 = gp.tileM.currentTileMap[LeftCol][upRow];
+            tileNum2 = gp.tileM.currentTileMap[rightCol][upRow];
+            decoNum1 = gp.decoM.selectedDecoNum[LeftCol][upRow];
+            decoNum2 = gp.decoM.selectedDecoNum[rightCol][upRow];
 
             if (upTiles == 0) {
                 gp.gameState = gp.playstateteori;
@@ -52,10 +52,10 @@ public class CollisionChecker {
         } 
         else if (entity.direction.equals("right")){
             rightCol = (rightTiles + entity.speed) / gp.tileSize;
-            tileNum1 = gp.tileM.mapTIleNum[rightCol][upRow];
-            tileNum2 = gp.tileM.mapTIleNum[rightCol][downRow];
-            decoNum1 = gp.decoM.mapTIleNum[rightCol][upRow];
-            decoNum2 = gp.decoM.mapTIleNum[rightCol][downRow];
+            tileNum1 = gp.tileM.currentTileMap[rightCol][upRow];
+            tileNum2 = gp.tileM.currentTileMap[rightCol][downRow];
+            decoNum1 = gp.decoM.selectedDecoNum[rightCol][upRow];
+            decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if(rightTiles >= 1274){
                 gp.gameState = gp.playstatepraktikum;
             }
@@ -79,10 +79,10 @@ public class CollisionChecker {
         }
         else if (entity.direction.equals("down")){
             downRow = (downTiles + entity.speed) / gp.tileSize;
-            tileNum1 = gp.tileM.mapTIleNum[LeftCol][downRow];
-            tileNum2 = gp.tileM.mapTIleNum[rightCol][downRow];
-            decoNum1 = gp.decoM.mapTIleNum[LeftCol][downRow];
-            decoNum2 = gp.decoM.mapTIleNum[rightCol][downRow];
+            tileNum1 = gp.tileM.currentTileMap[LeftCol][downRow];
+            tileNum2 = gp.tileM.currentTileMap[rightCol][downRow];
+            decoNum1 = gp.decoM.selectedDecoNum[LeftCol][downRow];
+            decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || downTiles >= 760){
                 entity.collisionOn = true;
             }
@@ -102,10 +102,10 @@ public class CollisionChecker {
         }
         else if (entity.direction.equals("left")){
             LeftCol = (leftTiles - entity.speed) / gp.tileSize;
-            tileNum1 = gp.tileM.mapTIleNum[LeftCol][upRow];
-            tileNum2 = gp.tileM.mapTIleNum[LeftCol][downRow];
-            decoNum1 = gp.decoM.mapTIleNum[LeftCol][upRow];
-            decoNum2 = gp.decoM.mapTIleNum[LeftCol][downRow];
+            tileNum1 = gp.tileM.currentTileMap[LeftCol][upRow];
+            tileNum2 = gp.tileM.currentTileMap[LeftCol][downRow];
+            decoNum1 = gp.decoM.selectedDecoNum[LeftCol][upRow];
+            decoNum2 = gp.decoM.selectedDecoNum[LeftCol][downRow];
             if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || leftTiles == 0){
                 entity.collisionOn = true;
             }

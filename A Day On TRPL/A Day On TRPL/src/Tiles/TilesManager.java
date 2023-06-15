@@ -26,6 +26,7 @@ public class TilesManager {
         tile = new Tile[20];
         mapTIleNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         mapTeoriTIleNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        currentTileMap = mapTIleNum;
 
         getTileImage();
         loadMap();
