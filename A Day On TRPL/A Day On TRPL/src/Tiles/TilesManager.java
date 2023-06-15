@@ -13,20 +13,21 @@ import Games.GamePanel;
 public class TilesManager {
     GamePanel gp;
     public Tile[] tile;
-    public int mapTIleNum[][];
+    public int mapTileNum[][];
 
-    public int mapTeoriTIleNum[][];
+    public int mapTeoriTileNum[][];
 
-    public int mapPraktikumTIleNum[][];
+    public int mapPraktikumTilenum[][];
 
     public int currentTileMap[][];
     public TilesManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[20];
-        mapTIleNum = new int[gp.maxScreenCol][gp.maxScreenRow];
-        mapTeoriTIleNum = new int[gp.maxScreenCol][gp.maxScreenRow];
-        currentTileMap = mapTIleNum;
+        tile = new Tile[40];
+        mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        mapTeoriTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        mapPraktikumTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        currentTileMap = mapTileNum;
 
         getTileImage();
         loadMap();
@@ -81,6 +82,9 @@ public class TilesManager {
             tile[12] = new Tile();
             tile[12].image = ImageIO.read(getClass().getResourceAsStream("Tiles/Blank_Walls.png"));
             
+            tile[13] = new Tile();
+            tile[13].image = ImageIO.read(getClass().getResourceAsStream("Ini diisi pake path filenya, kaya yang diatas2"));
+
 
         }catch(IOException e){
             e.printStackTrace();
@@ -100,7 +104,7 @@ public class TilesManager {
                 while (col < gp.maxScreenCol){
                     String numbers[] = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
-                    mapTIleNum[col][row] = num;
+                    mapTileNum[col][row] = num;
                     col++;
                 }
                 if (col == gp.maxScreenCol){
@@ -124,7 +128,7 @@ public class TilesManager {
                 while (col < gp.maxScreenCol){
                     String numbers[] = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
-                    mapTeoriTIleNum[col][row] = num;
+                    mapTeoriTileNum[col][row] = num;
                     col++;
                 }
                 if (col == gp.maxScreenCol){
@@ -137,7 +141,7 @@ public class TilesManager {
         }
 
         try{
-            InputStream in = getClass().getResourceAsStream("Maps/Mapspraktikum.txt");
+            InputStream in = getClass().getResourceAsStream("Maps/MapsPraktikum.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
             int col = 0;
@@ -148,7 +152,7 @@ public class TilesManager {
                 while (col < gp.maxScreenCol){
                     String numbers[] = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
-                    mapPraktikumTIleNum[col][row] = num;
+                    mapPraktikumTilenum[col][row] = num;
                     col++;
                 }
                 if (col == gp.maxScreenCol){
@@ -165,13 +169,13 @@ public class TilesManager {
         int col = 0;
         int row = 0;
         if (gp.gameState == gp.playstatelobby){
-            currentTileMap = mapTIleNum;
+            currentTileMap = mapTileNum;
         }
         else if(gp.gameState == gp.playstateteori){
-            currentTileMap = mapTeoriTIleNum;
+            currentTileMap = mapTeoriTileNum;
         }
         else if(gp.gameState == gp.playstatepraktikum){
-            currentTileMap = mapPraktikumTIleNum;
+            currentTileMap = mapPraktikumTilenum;
         }
         while (row < gp.maxScreenRow) {
             while (col < gp.maxScreenCol){

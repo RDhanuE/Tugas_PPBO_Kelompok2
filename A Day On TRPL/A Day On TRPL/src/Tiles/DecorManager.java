@@ -21,7 +21,7 @@ public class DecorManager {
     public DecorManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[20];
+        tile = new Tile[40];
         mapDecoNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         mapDecoPraktikumNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         mapDecoTheoryNum = new int[gp.maxScreenCol][gp.maxScreenRow];

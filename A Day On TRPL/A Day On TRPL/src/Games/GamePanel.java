@@ -105,7 +105,6 @@ public class GamePanel extends JPanel implements Runnable{
         if (gameState == titlestate || gameState == creditstate){
             ui.draw(g2);
         } else {
-
             System.out.println(player.x + " " + player.y);
             tileM.draw(g2);
             decoM.draw(g2);

@@ -70,7 +70,7 @@ public class UI {
             drawCredits();
         }
 
-        else if (gp.gameState == gp.playstatelobby){
+        else if (gp.gameState == gp.playstatelobby || gp.gameState == gp.playstateteori || gp.gameState == gp.playstatepraktikum){
             drawQuestBar();
             if (count == 1 && startCounter <= startDialogue.length){
                 startJourney();
