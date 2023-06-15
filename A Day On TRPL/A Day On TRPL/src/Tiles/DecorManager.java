@@ -85,6 +85,48 @@ public class DecorManager {
             tile[10].isInteracable = true;
             tile[10].Entityindex = 1;
 
+            tile[11] = new Tile();
+            tile[11].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blackboard_TopLeft.png"));
+
+            tile[12] = new Tile();
+            tile[12].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blackboard_TopCenter.png"));
+
+            tile[13] = new Tile();
+            tile[13].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blackboard_TopRight.png"));
+
+            tile[14] = new Tile();
+            tile[14].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blackboard_BottomLeft.png"));
+
+            tile[15] = new Tile();
+            tile[15].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blackboard_BottomCenter.png"));
+
+            tile[16] = new Tile();
+            tile[16].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blackboard_BottomRight.png"));
+
+            tile[17] = new Tile();
+            tile[17].image = ImageIO.read(getClass().getResourceAsStream("Decor/Table_book.png"));
+
+            tile[18] = new Tile();
+            tile[18].image = ImageIO.read(getClass().getResourceAsStream("Decor/Table_empty.png"));
+
+            tile[19] = new Tile();
+            tile[19].image = ImageIO.read(getClass().getResourceAsStream("Decor/Chair_Up.png"));
+
+            tile[20] = new Tile();
+            tile[20].image = ImageIO.read(getClass().getResourceAsStream("Decor/Lecturer_Table.png"));
+
+            tile[21] = new Tile();
+            tile[21].image = ImageIO.read(getClass().getResourceAsStream("Decor/Ventilator.png"));
+
+            tile[22] = new Tile();
+            tile[22].image = ImageIO.read(getClass().getResourceAsStream("Decor/Window.png"));
+
+            tile[23] = new Tile();
+            tile[23].image = ImageIO.read(getClass().getResourceAsStream("Decor/Computer_Lab.png"));
+
+
+
+
 
 
         }catch(IOException e){
