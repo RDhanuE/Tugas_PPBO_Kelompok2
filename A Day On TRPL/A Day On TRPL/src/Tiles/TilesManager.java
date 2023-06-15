@@ -83,7 +83,20 @@ public class TilesManager {
             tile[12].image = ImageIO.read(getClass().getResourceAsStream("Tiles/Blank_Walls.png"));
             
             tile[13] = new Tile();
-            tile[13].image = ImageIO.read(getClass().getResourceAsStream("Ini diisi pake path filenya, kaya yang diatas2"));
+            tile[13].image = ImageIO.read(getClass().getResourceAsStream("Tiles/LeftUpper_Walls.png"));
+
+            tile[14] = new Tile();
+            tile[14].image = ImageIO.read(getClass().getResourceAsStream("Tiles/LeftMiddle_Walls.png"));
+
+            tile[15] = new Tile();
+            tile[15].image = ImageIO.read(getClass().getResourceAsStream("Tiles/LeftLower_Walls.png"));
+
+            tile[16] = new Tile();
+            tile[16].image = ImageIO.read(getClass().getResourceAsStream("Tiles/LeftLower_Walls.png"));
+
+
+
+
 
 
         }catch(IOException e){
