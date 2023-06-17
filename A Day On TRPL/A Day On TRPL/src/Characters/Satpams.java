@@ -15,7 +15,7 @@ public class Satpams extends Entity{
         super(gp);
         setDefaultValue();
         getPlayerImage();
-        this.dialogue = new String[11];
+        this.dialogue = new String[14];
         nextQuest = 2;
         
 
@@ -38,8 +38,11 @@ public class Satpams extends Entity{
         dialogue[6] = "Mahasiswa/nYaa kalo banyak apa lagi pak /nastaghfirullah jangan /nbikin saya emosi pak.";
         dialogue[7] = "Satpam/nNah di TRPL inin kita akan /nmempelajari bagaimana cara /npengembangan perangkat /nlunak termasuk pembuatan, /npemeliharaan, pengembangan, /nmanajemen kualitas /nperangkat lunak. Selain itu /nTRPL erat kaitannya dengan /ncoding, desain, dan /nalgoritma";
         dialogue[8] = "Mahasiswa/nBaiklah okke pak.../nTombak tajam di tancapkan/nTerima kasih saya ucapkan";
-        dialogue[9] = "Satpam/nOke, sama - sama nak";
-        dialogue[10] = "Satpam/nSelamat datang dan selamat /nbersenang - senang";
+        dialogue[9] = "Satpam/nOke, sama - sama nak/nowh iya, sepertinya kelas/nteori akan mulai sebentar/nlagi";
+        dialogue[10] = "Mahasiswa/nOwh iya benar pak/nKelas teori ke/narah mana ya pak?";
+        dialogue[11] = "Satpam/nKelas teori ada di/natas nak. Naik saja lewat/ntangga ini";
+        dialogue[12] = "Mahasiswa/nBaik pak, terimakasih";
+        dialogue[13] = "Satpam/nSelamat datang dan selamat /nbersenang - senang";
         gp.ui.currentDialogue = dialogue[counter];
     
     }

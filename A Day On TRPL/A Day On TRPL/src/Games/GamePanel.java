@@ -5,10 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
-import Characters.Entity;
-import Characters.Gudang;
-import Characters.Player;
-import Characters.Satpams;
+import Characters.*;
 import Tiles.DecorManager;
 import Tiles.TilesManager;
 
@@ -30,12 +27,13 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     public CollisionChecker collider = new CollisionChecker(this);
     public Entity[] LobbyInteract = new Entity[3];
-    public Entity[] ToeriInteract = new Entity[5];
-    public Entity[] PraktikumInteract = new Entity[5];
+    public Entity[] TeoriInteract = new Entity[2];
+    public Entity[] PraktikumInteract = new Entity[0];
 
     public Gudang gudang = new Gudang(this);
     public Player player = new Player(this, keyhandler);
     public Satpams npc1 = new Satpams(this);
+    public Mahasiswa_Wanita npcTeori1 = new Mahasiswa_Wanita(this);
     
     public UI ui = new UI(this);
 
@@ -67,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.LobbyInteract[1] = npc1;
         this.LobbyInteract[2] = gudang;
 
+        this.TeoriInteract[1] = npcTeori1;
     }
 
 
@@ -98,7 +97,21 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
         player.update();
-        npc1.update();
+        if (gameState == playstatelobby){
+            for (int x = 1; x < LobbyInteract.length ; x++){
+                LobbyInteract[x].update();
+            }
+        }
+        else if (gameState == playstateteori){
+            for (int x = 1; x < TeoriInteract.length ; x++){
+                TeoriInteract[x].update();
+            }
+        }
+        else if (gameState == playstatepraktikum){
+            for (int x = 1; x < PraktikumInteract.length ; x++){
+                PraktikumInteract[x].update();
+            }
+        }
     }
 
     protected void paintComponent(Graphics g) {
@@ -114,6 +127,16 @@ public class GamePanel extends JPanel implements Runnable{
             if (gameState == playstatelobby){
                 for (int x = 1; x < LobbyInteract.length ; x++){
                     LobbyInteract[x].draw(g2);
+                }
+            }
+            else if (gameState == playstateteori){
+                for (int x = 1; x < TeoriInteract.length ; x++){
+                    TeoriInteract[x].draw(g2);
+                }
+            }
+            else if (gameState == playstatepraktikum){
+                for (int x = 1; x < PraktikumInteract.length ; x++){
+                    PraktikumInteract[x].draw(g2);
                 }
             }
             player.draw(g2);

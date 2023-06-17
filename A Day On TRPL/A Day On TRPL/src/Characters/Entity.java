@@ -41,4 +41,5 @@ public class Entity {
 
     public void setDialogue(){}
     public void draw(Graphics2D g2){};
+    public void update(){};
 }

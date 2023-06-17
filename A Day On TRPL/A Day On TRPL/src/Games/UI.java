@@ -80,7 +80,13 @@ public class UI {
                 g2.drawImage(bubble, 0, gp.tileSize * 10, gp.tileSize * 2, gp.tileSize * 2, null);
             }
             if (gp.player.keyH.isTalking && talk && startCounter >= startDialogue.length){
-                gp.LobbyInteract[indexNPC].setDialogue();
+                if (gp.gameState == gp.playstatelobby){
+                    gp.LobbyInteract[indexNPC].setDialogue();
+                } else if (gp.gameState == gp.playstateteori) {
+                    gp.TeoriInteract[indexNPC].setDialogue();
+                } else if (gp.gameState == gp.playstatepraktikum) {
+                    gp.PraktikumInteract[indexNPC].setDialogue();
+                }
                 drawDialogueScreen();
            }
         }

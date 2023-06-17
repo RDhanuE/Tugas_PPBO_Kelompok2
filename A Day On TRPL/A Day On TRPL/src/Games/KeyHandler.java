@@ -7,6 +7,7 @@ import Characters.Entity;
 public class KeyHandler implements KeyListener{
     GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed, isTalking = false;
+    public Entity target;
 
     public KeyHandler(GamePanel gp){
         this.gp = gp;
@@ -70,7 +71,15 @@ public class KeyHandler implements KeyListener{
                 rightPressed = true;
             }
             if(code == KeyEvent.VK_ENTER && gp.ui.talk){
-                Entity target = gp.LobbyInteract[gp.ui.indexNPC];
+                if (gp.gameState == gp.playstatelobby){
+                    target = gp.LobbyInteract[gp.ui.indexNPC];
+                }
+                else if (gp.gameState == gp.playstateteori){
+                    target = gp.TeoriInteract[gp.ui.indexNPC];
+                }
+                else if(gp.gameState == gp.playstatepraktikum){
+                    target = gp.PraktikumInteract[gp.ui.indexNPC];
+                }
                 if (gp.player.direction == "right" && target != null){
                     target.direction = "left";
                 } else if (gp.player.direction == "left" && target != null){
