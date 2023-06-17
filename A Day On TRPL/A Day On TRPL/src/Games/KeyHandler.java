@@ -80,13 +80,13 @@ public class KeyHandler implements KeyListener{
                 else if(gp.gameState == gp.playstatepraktikum){
                     target = gp.PraktikumInteract[gp.ui.indexNPC];
                 }
-                if (gp.player.direction == "right" && target != null){
+                if (gp.player.direction == "right" && target != null && target.moveOnTalk){
                     target.direction = "left";
-                } else if (gp.player.direction == "left" && target != null){
+                } else if (gp.player.direction == "left" && target != null && target.moveOnTalk){
                     target.direction = "right";
-                } else if (gp.player.direction == "up" && target != null){
+                } else if (gp.player.direction == "up" && target != null && target.moveOnTalk){
                     target.direction = "down";
-                } else if(gp.player.direction == "down" && target != null){
+                } else if(gp.player.direction == "down" && target != null && target.moveOnTalk){
                     target.direction = "up";
                 }
                 if (gp.ui.startCounter < gp.ui.startDialogue.length){

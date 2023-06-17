@@ -36,6 +36,7 @@ public class Entity {
     public Rectangle hitBox = new Rectangle(0, 32, 62, 26);
     public boolean collisionOn = false;
     public boolean doneTalking = false;
+    public boolean moveOnTalk = true;
     public String dialogue[];
     public int nextQuest;
 

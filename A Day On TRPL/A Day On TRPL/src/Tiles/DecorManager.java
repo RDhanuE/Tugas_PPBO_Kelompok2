@@ -143,6 +143,11 @@ public class DecorManager {
             tile[24].isInteracable = true;
             tile[24].Entityindex = 2;
 
+            tile[25] = new Tile();
+            tile[25].image = ImageIO.read(getClass().getResourceAsStream("Decor/Blank_Walls_Interactable.png"));
+            tile[25].collision = true;
+            tile[25].isInteracable = true;
+            tile[25].Entityindex = 3;
 
 
         }catch(IOException e){
