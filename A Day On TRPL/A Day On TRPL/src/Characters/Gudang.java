@@ -10,10 +10,9 @@ public class Gudang extends Entity{
     }
     
     public void setDialogue(){
-        System.out.println(counter);
         dialogue[0] = "Mahasiswa/nHmmm";
-        dialogue[1] = "Mahasiswa/nTempat ini sepertinya sebuah gudang.";
-        dialogue[2] = "Mahasiswa/nTempat ini sepertinya sebuah gudang.";
+        dialogue[1] = "Mahasiswa/nTempat ini sepertinya sebuah/ngudang.";
+        dialogue[2] = "Mahasiswa/nTempat ini sepertinya sebuah/ngudang.";
         gp.ui.currentDialogue = dialogue[counter];
     }
 

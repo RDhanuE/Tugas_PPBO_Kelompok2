@@ -80,7 +80,7 @@ public class UI {
                 g2.drawImage(bubble, 0, gp.tileSize * 10, gp.tileSize * 2, gp.tileSize * 2, null);
             }
             if (gp.player.keyH.isTalking && talk && startCounter >= startDialogue.length){
-                gp.interactable[indexNPC].setDialogue();
+                gp.LobbyInteract[indexNPC].setDialogue();
                 drawDialogueScreen();
            }
         }

@@ -32,6 +32,7 @@ public class CollisionChecker {
                 gp.gameState = gp.playstateteori;
                 gp.player.x = 1144;
                 gp.player.y = 248;
+                gp.player.direction = "left";
             }
             if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
                 entity.collisionOn = true;
@@ -57,10 +58,27 @@ public class CollisionChecker {
             decoNum1 = gp.decoM.selectedDecoNum[rightCol][upRow];
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if(rightTiles >= 1274){
-                gp.gameState = gp.playstatepraktikum;
+                if (gp.gameState == gp.playstatelobby){
+                    gp.gameState = gp.playstatepraktikum;
+                    gp.player.x = 1144;
+                    gp.player.y = 240;
+                    gp.player.direction = "left";
+                }
+                else if (gp.gameState == gp.playstatepraktikum){
+                    gp.gameState = gp.playstatelobby;
+                    gp.player.x = 1144;
+                    gp.player.y = 240;
+                    gp.player.direction = "left";
+                }
+                else if(gp.gameState == gp.playstateteori){
+                    gp.gameState = gp.playstatelobby;
+                    gp.player.x = 612;
+                    gp.player.y = 28;
+                    gp.player.direction = "down";
+                }
             }
 
-            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true){
+            if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || rightTiles >= 1274){
                 entity.collisionOn = true;
                 }
             if (gp.decoM.tile[decoNum1].isInteracable == true){

@@ -1,5 +1,5 @@
 package Characters;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import Games.GamePanel;;
@@ -40,4 +40,5 @@ public class Entity {
     public int nextQuest;
 
     public void setDialogue(){}
+    public void draw(Graphics2D g2){};
 }

@@ -29,7 +29,9 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyhandler = new KeyHandler(this);
     Thread gameThread;
     public CollisionChecker collider = new CollisionChecker(this);
-    public Entity[] interactable = new Entity[3];
+    public Entity[] LobbyInteract = new Entity[3];
+    public Entity[] ToeriInteract = new Entity[5];
+    public Entity[] PraktikumInteract = new Entity[5];
 
     public Gudang gudang = new Gudang(this);
     public Player player = new Player(this, keyhandler);
@@ -62,8 +64,9 @@ public class GamePanel extends JPanel implements Runnable{
     
 
     public void setInteractable(){
-        this.interactable[1] = npc1;
-        this.interactable[2] = gudang;
+        this.LobbyInteract[1] = npc1;
+        this.LobbyInteract[2] = gudang;
+
     }
 
 
@@ -108,7 +111,11 @@ public class GamePanel extends JPanel implements Runnable{
             System.out.println(player.x + " " + player.y);
             tileM.draw(g2);
             decoM.draw(g2);
-            npc1.draw(g2);
+            if (gameState == playstatelobby){
+                for (int x = 1; x < LobbyInteract.length ; x++){
+                    LobbyInteract[x].draw(g2);
+                }
+            }
             player.draw(g2);
             ui.draw(g2);     
         }

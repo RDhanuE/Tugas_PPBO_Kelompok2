@@ -70,13 +70,15 @@ public class KeyHandler implements KeyListener{
                 rightPressed = true;
             }
             if(code == KeyEvent.VK_ENTER && gp.ui.talk){
-                Entity target = gp.interactable[gp.ui.indexNPC];
-                if (gp.player.direction == "right"){
+                Entity target = gp.LobbyInteract[gp.ui.indexNPC];
+                if (gp.player.direction == "right" && target != null){
                     target.direction = "left";
-                } else if (gp.player.direction == "left"){
+                } else if (gp.player.direction == "left" && target != null){
                     target.direction = "right";
-                } else if (gp.player.direction == "up"){
+                } else if (gp.player.direction == "up" && target != null){
                     target.direction = "down";
+                } else if(gp.player.direction == "down" && target != null){
+                    target.direction = "up";
                 }
                 if (gp.ui.startCounter < gp.ui.startDialogue.length){
                     gp.ui.startCounter++;
