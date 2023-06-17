@@ -13,19 +13,26 @@ public class Mahasiswa_Wanita extends Entity{
         super(gp);
         setDefaultValue();
         getPlayerImage();
-        this.dialogue = new String[3];
+        this.dialogue = new String[10];
     }
 
     public void setDefaultValue() {
-        this.x = 768;
-        this.y = 256;
-        direction = "down";
+        this.x = 256;
+        this.y = 384;
+        direction = "right";
     }
 
     public void setDialogue(){
         dialogue[0] = "Mahasiswa/nHalo, salam kenal";
         dialogue[1] = "Mahasiswa Wanita/nHai, salam kenal juga";
-        dialogue[2] = "Mahasiswa Wanita/nKampus ini keren ya!";
+        dialogue[2] = "Mahasiswa/nKampus ini keren ya!, /nnamaku Joko, nama kamu siapa?";
+        dialogue[3] = "Mahasiswa Wanita/nIyaa, ohh namaku Sri";
+        dialogue[4] = "Mahasiswa/nEhmmm dalam kelas teori /nkita belajar mata kuliah /napa aja yaa, kamu tau?";
+        dialogue[5] = "Mahasiswa Wanita/nKalo menurutku si /nkita bakalan belajar /nmengenani bahasa pemrograman /napa aja yang digunakan, /nselain itu aku kurang tau juga /nmungkin nanti akan dijelaskan /nlebih detail oleh dosen.";
+        dialogue[6] = "Mahasiswa/nOoooo okkey, terima kasih...";
+        dialogue[7] = "Dosen/nHalo selamat pagi /nrekan-rekan mahasiswa";
+        dialogue[8] = "Mahasiswa/nSelamat pagi juga pak";
+        dialogue[9] = "Dosen/nOkke selamat datang /ndi kampus ini /ndan juga di prodi ini./nSaya akan menjelaskan /napa saja yang akan dipelajari /ndalam kelas teori selama /nsemester kedepan.";
         gp.ui.currentDialogue = dialogue[counter];
     }
 

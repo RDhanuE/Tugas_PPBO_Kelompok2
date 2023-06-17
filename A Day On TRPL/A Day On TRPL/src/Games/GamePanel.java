@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     public CollisionChecker collider = new CollisionChecker(this);
     public Entity[] LobbyInteract = new Entity[3];
-    public Entity[] TeoriInteract = new Entity[2];
+    public Entity[] TeoriInteract = new Entity[3];
     public Entity[] PraktikumInteract = new Entity[0];
 
     public Gudang gudang = new Gudang(this);
@@ -66,6 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.LobbyInteract[2] = gudang;
 
         this.TeoriInteract[1] = npcTeori1;
+        this.TeoriInteract[2] = npc1;
     }
 
 
