@@ -65,7 +65,7 @@ public class KeyHandler implements KeyListener{
 
         else if (gp.gameState == gp.creditstate){
             if(code == KeyEvent.VK_ENTER){
-                gp.playSE(1);
+                gp.playSE(3);
                 gp.gameState = gp.titlestate;
             }
         }
@@ -83,6 +83,7 @@ public class KeyHandler implements KeyListener{
             if(code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT){
                 rightPressed = true;
             }
+
             if(code == KeyEvent.VK_ENTER && gp.ui.talk){
                 gp.playSE(0);
                 if (gp.gameState == gp.playstatelobby){

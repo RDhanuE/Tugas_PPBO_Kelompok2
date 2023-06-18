@@ -14,6 +14,8 @@ public class Sound {
         SoundURL[0] = getClass().getResource("/Sound/talk.wav");
         SoundURL[1] = getClass().getResource("/Sound/ui_select.wav");
         SoundURL[2] = getClass().getResource("/Sound/ui_updown.wav");
+        SoundURL[3] = getClass().getResource("/Sound/ui_back.wav");
+        SoundURL[4] = getClass().getResource("/Sound/walk.wav");
     }
 
     public void setFile(int i){
