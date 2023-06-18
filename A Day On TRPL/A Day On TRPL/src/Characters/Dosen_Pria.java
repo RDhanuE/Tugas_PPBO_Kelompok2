@@ -9,17 +9,15 @@ import javax.imageio.ImageIO;
 
 import Games.GamePanel;
 
-public class Dosen_Pria extends Entity{
+public class Dosen_Pria extends Satpams{
 
     public Dosen_Pria(GamePanel gp){
         super(gp);
         setDefaultValue();
-        getPlayerImage();
         this.dialogue = new String[11];
         nextQuest = 3;
 
 
-        hitBox = new Rectangle(0, 32, 62, 26);
     }
 
     public void setDefaultValue() {
@@ -39,40 +37,11 @@ public class Dosen_Pria extends Entity{
         dialogue[7] = "Dosen/nTentu saja,/nselama menggunakan lab ini/nmahasiswa dilarang minum/nataupun makan di dalam/nlab karena dikhawatirkan/nakan tumpah dan merusak/nperalatan di sini.";
         dialogue[8] = "Dosen/nUntuk tempat duduknya, /nmahasiswa akan duduk sesuai/nnomor urut tertentu,/njadi mahasiswa tersebut/nyang bertanggung jawab/nsesuai dengan komputer/nyang dipakainya sendiri";
         dialogue[9] = "Mahasiswa/nBaik, Pak. Terima kasih/natas informasinya.";
-        dialogue[10] ="Dosen/nOke,n/silakan menjalani kuliah/ndi lab ini./nTetap semangat!";
+        dialogue[10] ="Dosen/nOke,/nsilakan menjalani kuliah/ndi lab ini./nTetap semangat!";
         gp.ui.currentDialogue = dialogue[counter];
 
     }
 
-    public void getPlayerImage(){
-        try{
-            downIdle1 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle1.png"));
-            downIdle2 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle2.png"));
-            downIdle3 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle3.png"));
-            downIdle4 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle4.png"));
-            downIdle5 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle5.png"));
-            downIdle6 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle6.png"));
-
-            rightIdle1 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right1.png"));
-            rightIdle2 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right2.png"));
-            rightIdle3 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right3.png"));
-            rightIdle4 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right4.png"));
-            rightIdle5 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right5.png"));
-            rightIdle6 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Right6.png"));
-
-
-            leftIdle1 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left1.png"));
-            leftIdle2 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left2.png"));
-            leftIdle3 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left3.png"));
-            leftIdle4 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left4.png"));
-            leftIdle5 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left5.png"));
-            leftIdle6 = ImageIO.read(getClass().getResourceAsStream("/Characters/Satpam/Satpam_Idle_Left6.png"));
-
-
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void update(){
         spriteCounter++;

@@ -47,6 +47,9 @@ public class GamePanel extends JPanel implements Runnable{
     public final int creditstate = 3;
     public final int playstatepraktikum = 5;
 
+    public  boolean visitedTeori = false;
+    public boolean visitedPraktikum = false;
+
     
 
     int FPS = 60;

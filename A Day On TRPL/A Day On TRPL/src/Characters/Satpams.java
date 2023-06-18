@@ -19,7 +19,6 @@ public class Satpams extends Entity{
         nextQuest = 2;
         
 
-        hitBox = new Rectangle(0, 32, 62, 26);
     }
 
     public void setDefaultValue() {

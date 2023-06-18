@@ -21,7 +21,7 @@ public class UI {
     public boolean talk;
     public int indexNPC = 0, indexQuest;
     public int startCounter = 0;
-    public String[] quest = new String[3];
+    public String[] quest = new String[4];
     String[] startDialogue = new String[4];
     int count = 1;
     public int commandNum = 0;
@@ -54,6 +54,7 @@ public class UI {
         quest[0] = "";
         quest[1] = "Bicara /ndengan Pak /nsatpam";
         quest[2] = "Pergi ke /nkelas";
+        quest[3] = "Bicara dengan/nPak dosen";
     }
 
 

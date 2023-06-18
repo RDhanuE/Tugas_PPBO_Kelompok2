@@ -33,6 +33,10 @@ public class CollisionChecker {
                 gp.player.x = 1144;
                 gp.player.y = 248;
                 gp.player.direction = "left";
+                if (!gp.visitedTeori){
+                    gp.ui.indexQuest = 3;
+                    gp.visitedTeori = true;
+                }
             }
             else if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || upTiles == 0){
                 entity.collisionOn = true;
