@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionChecker collider = new CollisionChecker(this);
     public Entity[] LobbyInteract = new Entity[5];
     public Entity[] TeoriInteract = new Entity[3];
-    public Entity[] PraktikumInteract = new Entity[0];
+    public Entity[] PraktikumInteract = new Entity[2];
 
     public Gudang gudang = new Gudang(this);
     public Player player = new Player(this, keyhandler);
@@ -36,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Mahasiswa_Wanita npcTeori1 = new Mahasiswa_Wanita(this);
     public Mahasiswa_Pria npcToya1 = new Mahasiswa_Pria(this);
     public Mahasiswa_Wanita_Lobby npcToya2 = new Mahasiswa_Wanita_Lobby(this);
+    public Dosen_Pria npcPraktikum1 = new Dosen_Pria(this);
     
     public UI ui = new UI(this);
 
@@ -72,6 +73,8 @@ public class GamePanel extends JPanel implements Runnable{
 
         this.TeoriInteract[1] = npcTeori1;
         this.TeoriInteract[2] = npc1;
+
+        this.PraktikumInteract[1] = npcPraktikum1;
     }
 
 

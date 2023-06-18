@@ -150,6 +150,10 @@ public class DecorManager {
             tile[25].Entityindex = 3;
 
 
+
+
+
+
         }catch(IOException e){
             e.printStackTrace();
         }
