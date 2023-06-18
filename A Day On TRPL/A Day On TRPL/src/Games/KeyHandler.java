@@ -23,6 +23,7 @@ public class KeyHandler implements KeyListener{
 
         if (gp.gameState == gp.titlestate){
             if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
+                gp.playSE(2);
                 if (gp.ui.commandNum == 0){
                     gp.ui.commandNum = 2;
                 } else {
@@ -30,6 +31,7 @@ public class KeyHandler implements KeyListener{
                 }
             }
             if(code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN){
+                gp.playSE(2);
                 if (gp.ui.commandNum == 2){
                     gp.ui.commandNum = 0;
                 } else {
@@ -38,25 +40,32 @@ public class KeyHandler implements KeyListener{
             }
             if(code == KeyEvent.VK_ENTER){
                 if (gp.ui.commandNum == 0){
+                    gp.playSE(1);
                     gp.gameState = gp.tutorialstate;
                 }
 
                 if (gp.ui.commandNum == 1){
+                    gp.playSE(1);
                     gp.gameState = gp.creditstate;
                 }
 
                 if (gp.ui.commandNum == 2){
+                    gp.playSE(1);
                     System.exit(0);
                 }
             }
         }
 
         else if (gp.gameState == gp.tutorialstate){
-            gp.gameState = gp.playstatelobby;
+            if(code == KeyEvent.VK_ENTER) {
+                gp.playSE(1);
+                gp.gameState = gp.playstatelobby;
+            }
         }
 
         else if (gp.gameState == gp.creditstate){
             if(code == KeyEvent.VK_ENTER){
+                gp.playSE(1);
                 gp.gameState = gp.titlestate;
             }
         }
@@ -75,6 +84,7 @@ public class KeyHandler implements KeyListener{
                 rightPressed = true;
             }
             if(code == KeyEvent.VK_ENTER && gp.ui.talk){
+                gp.playSE(0);
                 if (gp.gameState == gp.playstatelobby){
                     target = gp.LobbyInteract[gp.ui.indexNPC];
                 }

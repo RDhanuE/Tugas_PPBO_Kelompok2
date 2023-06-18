@@ -54,7 +54,7 @@ public class UI {
         quest[0] = "";
         quest[1] = "Bicara /ndengan Pak /nsatpam";
         quest[2] = "Pergi ke /nkelas";
-        quest[3] = "Bicara dengan/Bu dosen";
+        quest[3] = "Bicara dengan/nBu dosen";
     }
 
 

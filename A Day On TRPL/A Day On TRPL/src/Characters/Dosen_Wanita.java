@@ -9,7 +9,7 @@ public class Dosen_Wanita extends Mahasiswa_Wanita {
     public Dosen_Wanita(GamePanel gp){
         super(gp);
         setDefaultValue();
-        this.dialogue = new String[8];
+        this.dialogue = new String[9];
     }
 
     public void setDefaultValue() {
@@ -20,13 +20,14 @@ public class Dosen_Wanita extends Mahasiswa_Wanita {
 
     public void setDialogue(){
         dialogue[0] = "Dosen/nHalo selamat pagi /nrekan-rekan mahasiswa";
-        dialogue[1] = "Mahasiswa/nSelamat pagi juga pak";
+        dialogue[1] = "Mahasiswa/nSelamat pagi juga bu";
         dialogue[2] = "Dosen/nOkke selamat datang /ndi kampus ini /ndan juga di prodi ini./nSaya akan menjelaskan /napa saja yang akan dipelajari /ndalam kelas teori.";
-        dialogue[3] = "Dosen/nNah dalam kelas teori kita /nakan mempelajari beberapa materi /ndimana sebagai acuan untuk /nimplementasi dalam kelas praktikum.";
+        dialogue[3] = "Dosen/nNah dalam kelas teori kita /nakan mempelajari beberapa/nmateri dimana sebagai/nacuan untuk implementasi/ndalam kelas praktikum.";
         dialogue[4] = "Dosen/nApakah ada yang kurang jelas?";
         dialogue[5] = "Mahasiswa/nSudah jelas bu.";
-        dialogue[6] = "Dosen/nCukup sekian penjelasan dari saya, selamat berjuang!!.";
+        dialogue[6] = "Dosen/nCukup sekian penjelasan/ndari saya./nselamat berjuang!!.";
         dialogue[7] = "Mahasiswa/nSIAPPPP BUUUU...";
+        dialogue[8] = "Dosen/nSelamat berjuang semuanya!!";
         gp.ui.currentDialogue = dialogue[counter];
     }
     public void update(){

@@ -21,6 +21,7 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenHeight = tileSize * maxScreenRow;
     
     //Game Component
+    Sound sound = new Sound();
     TilesManager tileM = new TilesManager(this);
     DecorManager decoM = new DecorManager(this);
     KeyHandler keyhandler = new KeyHandler(this);
@@ -163,6 +164,21 @@ public class GamePanel extends JPanel implements Runnable{
 
         g2.dispose();
 
+    }
+
+    public void playMusic(int i){
+        sound.setFile(i);
+        sound.play();
+        sound.loop();
+    }
+
+    public void stopMusic(){
+        sound.stop();
+    }
+
+    public void playSE(int i){
+        sound.setFile(i);
+        sound.play();
     }
 
 }
