@@ -54,7 +54,7 @@ public class UI {
         quest[0] = "";
         quest[1] = "Bicara /ndengan Pak /nsatpam";
         quest[2] = "Pergi ke /nkelas";
-        quest[3] = "Bicara dengan/nPak dosen";
+        quest[3] = "Bicara dengan/Bu dosen";
     }
 
 
@@ -65,6 +65,10 @@ public class UI {
 
         if (gp.gameState == gp.titlestate){
             drawTittleScreen();
+        }
+
+        else if (gp.gameState == gp.tutorialstate){
+            drawTutorial();
         }
 
         else if (gp.gameState == gp.creditstate){
@@ -91,6 +95,35 @@ public class UI {
                 drawDialogueScreen();
            }
         }
+    }
+
+    public void drawTutorial(){
+        g2.setColor(Color.white);
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 80));
+
+        String text = "Tutorial";
+        int x = getcenterX(text);
+        int y = gp.tileSize * 3;
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40));
+        text = "Use W A S D to move";
+        x = getcenterX(text);
+        y += gp.tileSize * 3;
+        g2.drawString(text, x, y);
+
+        text = "Use ENTER to interact or talk";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        text = "Press ENTER to continue";
+        x = getcenterX(text);
+        y += gp.tileSize * 3;
+        g2.drawString(text, x, y);
     }
 
     public void drawCredits(){

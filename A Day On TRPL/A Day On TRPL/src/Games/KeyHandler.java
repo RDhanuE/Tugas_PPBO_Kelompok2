@@ -38,7 +38,7 @@ public class KeyHandler implements KeyListener{
             }
             if(code == KeyEvent.VK_ENTER){
                 if (gp.ui.commandNum == 0){
-                    gp.gameState = gp.playstatelobby;
+                    gp.gameState = gp.tutorialstate;
                 }
 
                 if (gp.ui.commandNum == 1){
@@ -49,6 +49,10 @@ public class KeyHandler implements KeyListener{
                     System.exit(0);
                 }
             }
+        }
+
+        else if (gp.gameState == gp.tutorialstate){
+            gp.gameState = gp.playstatelobby;
         }
 
         else if (gp.gameState == gp.creditstate){

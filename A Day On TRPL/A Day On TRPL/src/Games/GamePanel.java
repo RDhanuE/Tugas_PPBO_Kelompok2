@@ -49,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int titlestate = 2;
     public final int creditstate = 3;
     public final int playstatepraktikum = 5;
+    public final int tutorialstate = 6;
 
     public  boolean visitedTeori = false;
     public boolean visitedPraktikum = false;
@@ -135,7 +136,7 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
-        if (gameState == titlestate || gameState == creditstate){
+        if (gameState == titlestate || gameState == creditstate || gameState == tutorialstate){
             ui.draw(g2);
         } else {
             System.out.println(player.x + " " + player.y);
