@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Mahasiswa_Wanita_Lobby npcToya2 = new Mahasiswa_Wanita_Lobby(this);
     public Dosen_Pria npcPraktikum1 = new Dosen_Pria(this);
     public Dosen_Wanita npcTeori2 = new Dosen_Wanita(this);
-    public Characters.computer computer = new computer(this);
+    public Computer computer = new Computer(this);
     public Mahasiswa_Wanita_Praktikum npcPraktikum2 =  new Mahasiswa_Wanita_Praktikum(this);
     public Mahasiswa_Pria_Teori npcTeori3 = new Mahasiswa_Pria_Teori(this);
     
