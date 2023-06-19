@@ -4,10 +4,10 @@ import Games.GamePanel;
 
 import java.awt.*;
 
-public class computer extends Entity{
+public class Computer extends Entity{
     int x = 1;
 
-    public computer(GamePanel gp) {
+    public Computer(GamePanel gp) {
         super(gp);
         this.dialogue = new String[3];
     }
