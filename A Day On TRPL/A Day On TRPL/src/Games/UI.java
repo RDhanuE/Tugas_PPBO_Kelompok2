@@ -124,6 +124,12 @@ public class UI {
         x = getcenterX(text);
         y += gp.tileSize * 3;
         g2.drawString(text, x, y);
+
+        text = "Press ESCAPE to go back";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
     }
 
     public void drawCredits(){
@@ -167,7 +173,7 @@ public class UI {
 
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30 ));
-        text = "Press enter to get back to main menu";
+        text = "Press ESCAPE to get back to main menu";
         x = getcenterX(text);
         y += gp.tileSize * 3;
         g2.drawString(text, x, y);

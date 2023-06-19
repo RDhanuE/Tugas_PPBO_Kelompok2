@@ -25,7 +25,7 @@ public class Dosen_Wanita extends Mahasiswa_Wanita {
         dialogue[3] = "Dosen/nNah dalam kelas teori kita /nakan mempelajari beberapa/nmateri dimana sebagai/nacuan untuk implementasi/ndalam kelas praktikum.";
         dialogue[4] = "Dosen/nApakah ada yang kurang jelas?";
         dialogue[5] = "Mahasiswa/nSudah jelas bu.";
-        dialogue[6] = "Dosen/nCukup sekian penjelasan/ndari saya./nselamat berjuang!!.";
+        dialogue[6] = "Dosen/nCukup sekian penjelasan/ndari saya./nKelas teori akan segera/nsaya mulai./nSilahkan duduk di kursi/nmasing-masing";
         dialogue[7] = "Mahasiswa/nSIAPPPP BUUUU...";
         dialogue[8] = "Dosen/nSelamat berjuang semuanya!!";
         gp.ui.currentDialogue = dialogue[counter];

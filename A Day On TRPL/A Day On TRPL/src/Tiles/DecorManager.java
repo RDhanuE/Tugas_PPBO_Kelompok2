@@ -119,7 +119,6 @@ public class DecorManager {
 
             tile[19] = new Tile();
             tile[19].image = ImageIO.read(getClass().getResourceAsStream("Decor/Chair_Up.png"));
-            tile[19].collision = true;
 
             tile[20] = new Tile();
             tile[20].image = ImageIO.read(getClass().getResourceAsStream("Decor/Lecturer_Table.png"));

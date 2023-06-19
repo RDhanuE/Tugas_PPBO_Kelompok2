@@ -41,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Dosen_Wanita npcTeori2 = new Dosen_Wanita(this);
     public Kursi computer = new Kursi(this);
     public Mahasiswa_Wanita_Praktikum npcPraktikum2 =  new Mahasiswa_Wanita_Praktikum(this);
+    public Mahasiswa_Pria_Teori npcTeori3 = new Mahasiswa_Pria_Teori(this);
     
     public UI ui = new UI(this);
 
@@ -79,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.LobbyInteract[4] = npcToya2;
 
         this.TeoriInteract[1] = npcTeori1;
-        this.TeoriInteract[2] = npcToya1;
+        this.TeoriInteract[2] = npcTeori3;
         this.TeoriInteract[3] = npcTeori2;
 
         this.PraktikumInteract[1] = npcPraktikum1;

@@ -61,10 +61,14 @@ public class KeyHandler implements KeyListener{
                 gp.playSE(1);
                 gp.gameState = gp.playstatelobby;
             }
+            else if(code == KeyEvent.VK_ESCAPE){
+                gp.playSE(3);
+                gp.gameState = gp.titlestate;
+            }
         }
 
         else if (gp.gameState == gp.creditstate){
-            if(code == KeyEvent.VK_ENTER){
+            if(code == KeyEvent.VK_ESCAPE){
                 gp.playSE(3);
                 gp.gameState = gp.titlestate;
             }
