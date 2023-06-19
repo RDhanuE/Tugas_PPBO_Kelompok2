@@ -21,7 +21,7 @@ public class KeyHandler implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        if (gp.gameState == gp.titlestate){
+        if (gp.getGameState() == gp.titlestate){
             if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
                 gp.playSE(2);
                 if (gp.ui.commandNum == 0){
@@ -41,12 +41,12 @@ public class KeyHandler implements KeyListener{
             if(code == KeyEvent.VK_ENTER){
                 if (gp.ui.commandNum == 0){
                     gp.playSE(1);
-                    gp.gameState = gp.tutorialstate;
+                    gp.setGameState(gp.tutorialstate);
                 }
 
                 if (gp.ui.commandNum == 1){
                     gp.playSE(1);
-                    gp.gameState = gp.creditstate;
+                    gp.setGameState(gp.creditstate);
                 }
 
                 if (gp.ui.commandNum == 2){
@@ -56,31 +56,31 @@ public class KeyHandler implements KeyListener{
             }
         }
 
-        else if (gp.gameState == gp.tutorialstate){
+        else if (gp.getGameState() == gp.tutorialstate){
             if(code == KeyEvent.VK_ENTER) {
                 gp.playSE(1);
-                gp.gameState = gp.playstatelobby;
+                gp.setGameState(gp.playstatelobby);
             }
             else if(code == KeyEvent.VK_ESCAPE){
                 gp.playSE(3);
-                gp.gameState = gp.titlestate;
+                gp.setGameState(gp.titlestate);
             }
         }
 
-        else if (gp.gameState == gp.creditstate){
+        else if (gp.getGameState() == gp.creditstate){
             if(code == KeyEvent.VK_ESCAPE){
                 gp.playSE(3);
-                gp.gameState = gp.titlestate;
+                gp.setGameState(gp.titlestate);
             }
         }
 
-        else if(gp.gameState == gp.finalstate){
+        else if(gp.getGameState() == gp.finalstate){
             if(code == KeyEvent.VK_ENTER){
                 System.exit(0);
             }
         }
 
-        else if (gp.gameState == gp.playstatelobby || gp.gameState == gp.playstateteori || gp.gameState == gp.playstatepraktikum){
+        else if (gp.getGameState() == gp.playstatelobby || gp.getGameState() == gp.playstateteori || gp.getGameState() == gp.playstatepraktikum){
             if(code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
                 upPressed = true;
             }
@@ -96,13 +96,13 @@ public class KeyHandler implements KeyListener{
 
             if(code == KeyEvent.VK_ENTER && gp.ui.talk){
                 gp.playSE(0);
-                if (gp.gameState == gp.playstatelobby){
+                if (gp.getGameState() == gp.playstatelobby){
                     target = gp.LobbyInteract[gp.ui.indexNPC];
                 }
-                else if (gp.gameState == gp.playstateteori){
+                else if (gp.getGameState() == gp.playstateteori){
                     target = gp.TeoriInteract[gp.ui.indexNPC];
                 }
-                else if(gp.gameState == gp.playstatepraktikum){
+                else if(gp.getGameState() == gp.playstatepraktikum){
                     target = gp.PraktikumInteract[gp.ui.indexNPC];
                 }
                 if (gp.player.direction == "right" && target != null && target.moveOnTalk){
@@ -140,7 +140,7 @@ public class KeyHandler implements KeyListener{
                         isTalking = false;
                     }
                 }
-            } 
+            }
         }
     }
 
@@ -160,5 +160,5 @@ public class KeyHandler implements KeyListener{
             rightPressed = false;
         }
     }
-    
+
 }

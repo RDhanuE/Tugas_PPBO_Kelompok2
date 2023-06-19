@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     public UI ui = new UI(this);
 
-    public int gameState;
+    private int gameState;
     public final int playstatelobby = 1;
     public final int playstateteori = 4;
     public final int titlestate = 2;
@@ -57,7 +57,13 @@ public class GamePanel extends JPanel implements Runnable{
     public  boolean visitedTeori = false;
     public boolean visitedPraktikum = false;
 
-    
+    public int getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(int gameState) {
+        this.gameState = gameState;
+    }
 
     int FPS = 60;
 

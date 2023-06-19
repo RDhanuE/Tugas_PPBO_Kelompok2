@@ -29,7 +29,7 @@ public class CollisionChecker {
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][upRow];
 
             if (upTiles == 0 && gp.ui.indexQuest >= 2) {
-                gp.gameState = gp.playstateteori;
+                gp.setGameState(gp.playstateteori);
                 gp.player.x = 1144;
                 gp.player.y = 248;
                 gp.player.direction = "left";
@@ -62,20 +62,20 @@ public class CollisionChecker {
             decoNum1 = gp.decoM.selectedDecoNum[rightCol][upRow];
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if(rightTiles >= 1274){
-                if (gp.gameState == gp.playstatelobby){
-                    gp.gameState = gp.playstatepraktikum;
+                if (gp.getGameState() == gp.playstatelobby){
+                    gp.setGameState(gp.playstatepraktikum);
                     gp.player.x = 1144;
                     gp.player.y = 240;
                     gp.player.direction = "left";
                 }
-                else if (gp.gameState == gp.playstatepraktikum){
-                    gp.gameState = gp.playstatelobby;
+                else if (gp.getGameState() == gp.playstatepraktikum){
+                    gp.setGameState(gp.playstatelobby);
                     gp.player.x = 1144;
                     gp.player.y = 240;
                     gp.player.direction = "left";
                 }
-                else if(gp.gameState == gp.playstateteori){
-                    gp.gameState = gp.playstatelobby;
+                else if(gp.getGameState() == gp.playstateteori){
+                    gp.setGameState(gp.playstatelobby);
                     gp.player.x = 612;
                     gp.player.y = 28;
                     gp.player.direction = "down";
@@ -105,8 +105,8 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.currentTileMap[rightCol][downRow];
             decoNum1 = gp.decoM.selectedDecoNum[LeftCol][downRow];
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
-            if (downTiles >= 760 && gp.gameState == gp.playstatelobby && gp.ui.indexQuest == 5){
-                gp.gameState = gp.finalstate;
+            if (downTiles >= 760 && gp.getGameState() == gp.playstatelobby && gp.ui.indexQuest == 5){
+                gp.setGameState(gp.finalstate);
             }
 
             if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || downTiles >= 760){

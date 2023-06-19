@@ -245,13 +245,13 @@ public class DecorManager {
     public void draw(Graphics2D g2){
         int col = 0;
         int row = 0;
-        if (gp.gameState == gp.playstatelobby){
+        if (gp.getGameState() == gp.playstatelobby){
             selectedDecoNum = mapDecoNum;
         }
-        else if(gp.gameState == gp.playstateteori){
+        else if(gp.getGameState() == gp.playstateteori){
             selectedDecoNum = mapDecoTheoryNum;
         }
-        else if(gp.gameState == gp.playstatepraktikum){
+        else if(gp.getGameState() == gp.playstatepraktikum){
             selectedDecoNum = mapDecoPraktikumNum;
         }
         while (row < gp.maxScreenRow) {

@@ -65,23 +65,23 @@ public class UI {
         g2.setFont(retroC);
 
 
-        if (gp.gameState == gp.titlestate){
+        if (gp.getGameState() == gp.titlestate){
             drawTittleScreen();
         }
 
-        else if (gp.gameState == gp.tutorialstate){
+        else if (gp.getGameState() == gp.tutorialstate){
             drawTutorial();
         }
 
-        else if (gp.gameState == gp.creditstate){
+        else if (gp.getGameState() == gp.creditstate){
             drawCredits();
         }
 
-        else if (gp.gameState == gp.finalstate) {
+        else if (gp.getGameState() == gp.finalstate) {
             drawGameover();
         }
 
-        else if (gp.gameState == gp.playstatelobby || gp.gameState == gp.playstateteori || gp.gameState == gp.playstatepraktikum){
+        else if (gp.getGameState() == gp.playstatelobby || gp.getGameState() == gp.playstateteori || gp.getGameState() == gp.playstatepraktikum){
             drawQuestBar();
             if (count == 1 && startCounter <= startDialogue.length){
                 startJourney();
@@ -91,11 +91,11 @@ public class UI {
                 g2.drawImage(bubble, 0, gp.tileSize * 10, gp.tileSize * 2, gp.tileSize * 2, null);
             }
             if (gp.player.keyH.isTalking && talk && startCounter >= startDialogue.length){
-                if (gp.gameState == gp.playstatelobby){
+                if (gp.getGameState() == gp.playstatelobby){
                     gp.LobbyInteract[indexNPC].setDialogue();
-                } else if (gp.gameState == gp.playstateteori) {
+                } else if (gp.getGameState() == gp.playstateteori) {
                     gp.TeoriInteract[indexNPC].setDialogue();
-                } else if (gp.gameState == gp.playstatepraktikum) {
+                } else if (gp.getGameState() == gp.playstatepraktikum) {
                     gp.PraktikumInteract[indexNPC].setDialogue();
                 }
                 drawDialogueScreen();
