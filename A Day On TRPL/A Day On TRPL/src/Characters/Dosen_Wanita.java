@@ -10,6 +10,7 @@ public class Dosen_Wanita extends Mahasiswa_Wanita {
         super(gp);
         setDefaultValue();
         this.dialogue = new String[9];
+        nextQuest = 4;
     }
 
     public void setDefaultValue() {

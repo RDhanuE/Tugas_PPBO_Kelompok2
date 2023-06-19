@@ -21,7 +21,7 @@ public class UI {
     public boolean talk;
     public int indexNPC = 0, indexQuest;
     public int startCounter = 0;
-    public String[] quest = new String[4];
+    public String[] quest = new String[6];
     String[] startDialogue = new String[4];
     int count = 1;
     public int commandNum = 0;
@@ -55,6 +55,8 @@ public class UI {
         quest[1] = "Bicara /ndengan Pak /nsatpam";
         quest[2] = "Pergi ke /nkelas";
         quest[3] = "Bicara dengan/nBu dosen";
+        quest[4] = "Ikuti kelas/nteori";
+        quest[5] = "Pulang";
     }
 
 
@@ -73,6 +75,10 @@ public class UI {
 
         else if (gp.gameState == gp.creditstate){
             drawCredits();
+        }
+
+        else if (gp.gameState == gp.finalstate) {
+            drawGameover();
         }
 
         else if (gp.gameState == gp.playstatelobby || gp.gameState == gp.playstateteori || gp.gameState == gp.playstatepraktikum){
@@ -179,6 +185,44 @@ public class UI {
         g2.drawString(text, x, y);
         
     
+    }
+
+    public  void drawGameover(){
+        g2.setColor(Color.white);
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 120));
+
+        String text = "GAME OVER";
+        int x = getcenterX(text);
+        int y = gp.tileSize * 3;
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40));
+
+        text = "Kamu sudah survive satu hari di trpl";
+        x = getcenterX(text);
+        y += gp.tileSize * 2;
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(Font.ITALIC, 40));
+
+        text = "Semoga kamu survive di hari selanjutnya...";
+        x = getcenterX(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40));
+
+        text = ">>EXIT<<";
+        x = getcenterX(text);
+        y += gp.tileSize * 4;
+        g2.drawString(text, x, y);
+
+
+
     }
 
     public void drawTittleScreen(){

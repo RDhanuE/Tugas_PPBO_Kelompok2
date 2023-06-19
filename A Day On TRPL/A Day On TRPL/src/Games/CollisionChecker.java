@@ -105,6 +105,10 @@ public class CollisionChecker {
             tileNum2 = gp.tileM.currentTileMap[rightCol][downRow];
             decoNum1 = gp.decoM.selectedDecoNum[LeftCol][downRow];
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
+            if (downTiles >= 760 && gp.gameState == gp.playstatelobby && gp.ui.indexQuest == 5){
+                gp.gameState = gp.finalstate;
+            }
+
             if (gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true || gp.decoM.tile[decoNum1].collision == true || gp.decoM.tile[decoNum2].collision == true || downTiles >= 760){
                 entity.collisionOn = true;
             }
