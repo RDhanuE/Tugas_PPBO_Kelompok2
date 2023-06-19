@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 import Games.GamePanel;;
 
-public class Entity {
+public abstract class Entity {
     GamePanel gp;
     public int x, y;
     public int speed;
@@ -40,7 +40,7 @@ public class Entity {
     public String dialogue[];
     public int nextQuest;
 
-    public void setDialogue(){}
-    public void draw(Graphics2D g2){};
-    public void update(){};
+    public abstract void setDialogue();
+    public abstract void draw(Graphics2D g2);
+    public abstract void update();
 }
