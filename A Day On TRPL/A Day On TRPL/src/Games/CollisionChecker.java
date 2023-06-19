@@ -106,6 +106,7 @@ public class CollisionChecker {
             decoNum1 = gp.decoM.selectedDecoNum[LeftCol][downRow];
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if (downTiles >= 760 && gp.getGameState() == gp.playstatelobby && gp.ui.indexQuest == 5){
+                gp.playSE(5);
                 gp.setGameState(gp.finalstate);
             }
 
