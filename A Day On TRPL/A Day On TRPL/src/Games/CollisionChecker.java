@@ -29,6 +29,7 @@ public class CollisionChecker {
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][upRow];
 
             if (upTiles == 0 && gp.ui.indexQuest >= 2) {
+                gp.playSE(5);
                 gp.setGameState(gp.playstateteori);
                 gp.player.x = 1144;
                 gp.player.y = 248;
@@ -63,18 +64,21 @@ public class CollisionChecker {
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if(rightTiles >= 1274){
                 if (gp.getGameState() == gp.playstatelobby){
+                    gp.playSE(5);
                     gp.setGameState(gp.playstatepraktikum);
                     gp.player.x = 1144;
                     gp.player.y = 240;
                     gp.player.direction = "left";
                 }
                 else if (gp.getGameState() == gp.playstatepraktikum){
+                    gp.playSE(5);
                     gp.setGameState(gp.playstatelobby);
                     gp.player.x = 1144;
                     gp.player.y = 240;
                     gp.player.direction = "left";
                 }
                 else if(gp.getGameState() == gp.playstateteori){
+                    gp.playSE(5);
                     gp.setGameState(gp.playstatelobby);
                     gp.player.x = 612;
                     gp.player.y = 28;
@@ -106,7 +110,7 @@ public class CollisionChecker {
             decoNum1 = gp.decoM.selectedDecoNum[LeftCol][downRow];
             decoNum2 = gp.decoM.selectedDecoNum[rightCol][downRow];
             if (downTiles >= 760 && gp.getGameState() == gp.playstatelobby && gp.ui.indexQuest == 5){
-                gp.playSE(5);
+                gp.playSE(4);
                 gp.setGameState(gp.finalstate);
             }
 

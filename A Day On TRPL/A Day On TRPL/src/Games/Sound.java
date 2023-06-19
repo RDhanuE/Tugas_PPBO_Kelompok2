@@ -15,8 +15,8 @@ public class Sound {
         SoundURL[1] = getClass().getResource("/Sound/ui_select.wav");
         SoundURL[2] = getClass().getResource("/Sound/ui_updown.wav");
         SoundURL[3] = getClass().getResource("/Sound/ui_back.wav");
-        SoundURL[4] = getClass().getResource("/Sound/walk.wav");
-        SoundURL[5] = getClass().getResource("/Sound/gameover.wav");
+        SoundURL[4] = getClass().getResource("/Sound/final.wav");
+        SoundURL[5] = getClass().getResource("/Sound/walk.wav");
     }
 
     public void setFile(int i){
@@ -25,7 +25,6 @@ public class Sound {
             clip = AudioSystem.getClip();
             clip.open(ais);
         } catch (Exception e) {
-            // TODO: handle exception
         }
     }
 
